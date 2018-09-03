@@ -1,6 +1,8 @@
-.artdeko_footer{
+p.condiciones_titulos{
     font-family: 'rockwell';
-    color: #ffffff;
-    font-variant:small-caps;
-    font-stretch:ultra-expanded;
+    text-decoration: underline;
+}
+p.info_footer{
+    font-family: 'rockwell';
+    line-height: 0.9;
 }
