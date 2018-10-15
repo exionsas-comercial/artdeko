@@ -25,7 +25,7 @@
             </t>
         </xpath>
         <xpath expr="//span[@name='uso']" position="inside">
-            <t t-if="xml.Receptor.get('UsoCFDI', False)">
+            <t t-if="o.l10n_mx_edi_cfdi_uuid">
                 <t t-set="usage" t-value="xml.Receptor.get('UsoCFDI')"/>
                 <span t-esc="usage"/> - <span t-field="o.l10n_mx_edi_usage"/>
             </t>
@@ -74,7 +74,7 @@
                 <span t-esc="o.l10n_mx_edi_amount_to_text()"/>                
             </t>
         </xpath>
-        <xpath expr="//p[@t-if='o.fiscal_position_id.note']" position="after">
+        <xpath expr="//div[@id='payment_term']" position="after">
             <t t-if="o.l10n_mx_edi_cfdi_uuid">
                 <div class="row" id='complement'>
                     <div class="col-xs-1">                            
