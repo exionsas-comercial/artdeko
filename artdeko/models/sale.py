@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models
+from datetime import datetime
+from odoo import api, fields, models, SUPERUSER_ID, _
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from odoo.tools.float_utils import float_is_zero, float_compare
+from odoo.tools.misc import formatLang
+from odoo.addons import decimal_precision as dp
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
@@ -26,3 +31,30 @@ class SaleOrder(models.Model):
         sale_order_words = '%(words)s %(amount_d)02d/100 %(curr_t)s' % dict(
             words=words, amount_d=amount_d, curr_t=currency_type)
         return sale_order_words
+    
+    @api.multi
+    def prepare_purchase_lines_from_sale_order(self):
+        """
+        Prepare the dict of values to create the new purchase line from sales order line.
+        """
+        purchase_lines = {}        
+        purchase_lines = {
+            'name': 'Orden de compra',
+            'type': 'ir.actions.act_window',
+            'res_model': 'purchase.order',
+            'view_mode': 'form,tree,graph',            
+        }
+        self.ensure_one()       
+        line3 = []
+        for line in self.order_line:
+            # Reset date, price and quantity since _onchange_quantity will provide default values
+            date_planned = datetime.today().strftime(DEFAULT_SERVER_DATETIME_FORMAT)
+            price_unit = 0.0
+            product_uom = line.product_id.uom_po_id or line.product_id.uom_id
+                        
+            line1 = {'product_id': line.product_id.id,'name': line.name,'product_uom': product_uom.id,'date_planned': date_planned,'price_unit': price_unit,'product_qty': line.product_uom_qty,}            
+            line2 = (0,0,line1)
+            line3.append(line2)        
+        purchase_lines['context'] = {'default_order_line': line3,}
+        return purchase_lines
+    
