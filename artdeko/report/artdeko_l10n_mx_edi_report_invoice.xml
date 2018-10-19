@@ -21,38 +21,57 @@
         </xpath>          
         <xpath expr="//span[@name='metodo_pago']" position="inside">
             <t t-if="o.l10n_mx_edi_cfdi_uuid">
-                <span t-esc="xml.get('formaDePago', xml.get('MetodoPago'))"/>
+                <span t-esc="xml.get('formaDePago', xml.get('MetodoPago'))"/> - <span t-field="o.payment_term_id.note"/>
+            </t>
+            <t t-else="">
+                <span t-field="o.payment_term_id.name"/>
             </t>
         </xpath>
         <xpath expr="//span[@name='uso']" position="inside">
             <t t-if="o.l10n_mx_edi_cfdi_uuid">
                 <t t-set="usage" t-value="xml.Receptor.get('UsoCFDI')"/>
-                <span t-esc="usage"/> - <span t-field="o.l10n_mx_edi_usage"/>
+                <span t-esc="usage"/> - 
             </t>
+            <span t-field="o.l10n_mx_edi_usage"/>            
         </xpath>       
         <xpath expr="//td[@name='fecha_emision']" position="inside">
             <t t-if="o.l10n_mx_edi_cfdi_uuid">
                 <span t-esc="xml.get('fecha', xml.get('Fecha', '')).replace('T', ' ')"/>
+            </t>
+            <t t-else="">
+                <span t-field="o.date_invoice"/>
             </t>
         </xpath>
         <xpath expr="//td[@name='certificado_emisor']" position="inside">
             <t t-if="o.l10n_mx_edi_cfdi_uuid">
                 <span t-esc="xml.get('noCertificado', xml.get('NoCertificado'))"/>
             </t>
+            <t t-else="">
+                Requiere firma
+            </t>
         </xpath>
         <xpath expr="//td[@name='certificado_sat']" position="inside">
             <t t-if="o.l10n_mx_edi_cfdi_uuid">
                 <span t-esc="tfd.get('noCertificadoSAT', tfd.get('NoCertificadoSAT'))"/>
+            </t>
+            <t t-else="">
+                Requiere firma
             </t>
         </xpath>
         <xpath expr="//td[@name='folio_fiscal']" position="inside">
             <t t-if="o.l10n_mx_edi_cfdi_uuid">
                 <span t-esc="tfd.get('UUID')"/>
             </t>
+            <t t-else="">
+                Requiere firma
+            </t>
         </xpath>
         <xpath expr="//td[@name='fecha_timbrado']" position="inside">
             <t t-if="o.l10n_mx_edi_cfdi_uuid">
                 <span t-esc="tfd.get('FechaTimbrado', '').replace('T', ' ')"/>
+            </t>
+            <t t-else="">
+                Requiere firma
             </t>
         </xpath>
         <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="before">

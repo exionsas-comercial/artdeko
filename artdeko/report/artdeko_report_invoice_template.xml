@@ -101,7 +101,12 @@
                                 </div>
                                 <div class="col-xs-10">
                                     <p>
-                                        <span t-field="o.partner_id"/>
+                                        <t t-if="o.partner_id.parent_id.name">
+                                            <span t-field="o.partner_id.parent_id.name"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.partner_id"/>
+                                        </t>                                        
                                     </p>                        
                                 </div>                                                     
                             </div>
@@ -292,10 +297,7 @@
                     <div id="payment_term" class="row" style="font-family: 'Rockwell' !important;">
                         <div class="col-xs-1">                            
                         </div>
-                        <div class="col-xs-10">
-                            <p t-if="o.payment_term_id">
-                                <span t-field="o.payment_term_id.note"/>
-                            </p>
+                        <div class="col-xs-10">                            
                             <p t-if="o.fiscal_position_id.note">
                                 <span t-field="o.fiscal_position_id.note"/>
                             </p> 
