@@ -10,7 +10,13 @@
                 </xpath>
                 <field name="notes" position="attributes">
                     <attribute name="placeholder">Observaciones</attribute>
-                </field>                
+                </field>
+                <xpath expr="//button[@name='print_quotation'][1]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//button[@name='print_quotation'][2]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>                
             </field>
         </record>        
         <record id="view_order_form" model="ir.ui.view">
@@ -22,12 +28,47 @@
                     <button name="prepare_purchase_lines_from_sale_order" type="object"
                         string="Crear orden de compra" class="btn-primary" 
                         attrs="{'invisible': [('state', 'not in', ['sale'])]}"
-                        groups="purchase.group_purchase_manager"/>
-                    
+                        groups="purchase.group_purchase_manager"/>                    
+                    <button name="action_new_purchase_request" type="object"
+                        string="Solicitar compra" class="btn-primary"  
+                        attrs="{'invisible': [('state', 'not in', ['sale'])]}"/>
+                    <button name="action_invoice_request" type="object"
+                        string="Solicitar facturación" class="btn-primary" 
+                        attrs="{'invisible': [('state', 'not in', ['sale'])]}"/>
                 </xpath>
                 <field name="note" position="attributes">
                     <attribute name="placeholder">Observaciones</attribute>
-                </field>                
+                </field>
+                <xpath expr="//button[@name='print_quotation'][1]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//button[@name='print_quotation'][2]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>                
+            </field>
+        </record>
+        <record id="crm_case_form_view_oppor" model="ir.ui.view">
+            <field name="name">crm.lead.oppor.inherited.artdeko</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_set_won_rainbowman']" position="before">
+                    <button name="action_new_quotation_request" type="object"
+                        string="Solicitar cotización" class="btn-primary"/>                    
+                </xpath>                
+            </field>
+        </record> 
+        <record id="invoice_form" model="ir.ui.view">
+            <field name="name">account.invoice.form.inherited.artdeko</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='invoice_print'][1]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//button[@name='invoice_print'][2]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>               
             </field>
         </record>        
     </data>

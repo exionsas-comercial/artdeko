@@ -58,3 +58,49 @@ class SaleOrder(models.Model):
         purchase_lines['context'] = {'default_order_line': line3,}
         return purchase_lines
     
+    @api.multi    
+    def action_new_purchase_request(self):
+        """
+        Request purchase.
+        """
+        purchase_request = {}        
+        purchase_request = {
+            'type': 'ir.actions.act_window',
+            'res_model': 'mail.activity',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'views': [[False, 'form']],
+            'target': 'new',
+            'context': {
+                'default_activity_type_id': 6,
+                'default_res_id': self.id,
+                'default_res_model': 'sale.order',
+                'default_summary': 'Solicitud de Orden de Compra',
+                'default_note': 'Por favor realizar la compra de los productos de la presente cotización',
+            },
+        }        
+        return purchase_request
+    
+    @api.multi
+    def action_invoice_request(self):
+        """
+        Request purchase.
+        """
+        invoice_request = {}        
+        invoice_request = {
+            'type': 'ir.actions.act_window',
+            'res_model': 'mail.activity',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'views': [[False, 'form']],
+            'target': 'new',
+            'context': {
+                'default_activity_type_id': 10,
+                'default_res_id': self.id,
+                'default_res_model': 'sale.order',
+                'default_summary': 'Solicitud de Factura',
+                'default_note': 'Por favor realizar la factura de la presente cotización',
+            },
+        }        
+        return invoice_request
+    
