@@ -39,7 +39,7 @@
                         string="Solicitar facturación" class="btn-primary" 
                         attrs="{'invisible': [('state', 'not in', ['sale'])]}"/>
                 </xpath>
-                <xpath expr="//field[@name='picking_ids']" position="before">                    
+                <xpath expr="//button[@name='action_view_invoice']" position="after">                    
                     <button type="object"
                         name="action_view_receipt"
                         class="oe_stat_button"
