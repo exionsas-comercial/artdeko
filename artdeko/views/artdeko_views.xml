@@ -48,7 +48,7 @@
                         attrs="{'invisible': [('receipt_count', '=', 0)]}" groups="base.group_user">
                         <field name="receipt_count" widget="statinfo" string="Recepciones"/>
                     </button>-->
-                    <field name="purchase_ids" invisible="1"/>
+                    <!--<field name="purchase_ids" invisible="1"/>-->
                     <button type="object"
                         name="action_view_purchases"
                         class="oe_stat_button"
