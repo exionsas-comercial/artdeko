@@ -9,8 +9,8 @@ from odoo.tools.misc import formatLang
 from odoo.addons import decimal_precision as dp
 
 class SaleOrder(models.Model):
-    _inherit = 'sale.order'
-
+    _inherit = 'sale.order'    
+    
     @api.multi
     def sale_amount_to_text(self):
         """Method to transform a float amount to text words
@@ -103,4 +103,29 @@ class SaleOrder(models.Model):
             },
         }        
         return invoice_request
+    '''
+    @api.multi
+    def action_view_receipt(self):
+        ''''''
+        Esta función retorna la vista donde se muestran las recepciones
+        de las compras realizadas para un sale order. Puede ser una lista o
+        el formulario en caso de una sola recepción.
+        ''''''
+        action = self.env.ref('stock.action_picking_tree_all').read()[0]
+
+        pickings = self.mapped('picking_ids')
+        if len(pickings) > 1:
+            action['domain'] = [('id', 'in', pickings.ids)]
+        elif pickings:
+            action['views'] = [(self.env.ref('stock.view_picking_form').id, 'form')]
+            action['res_id'] = pickings.id
+        return action
+    '''
+    @api.multi
+    def _compute_purchase_ids(self):
+        for order in self:
+            purchases = self.env['purchase.order']
+            order.purchase_count = len(purchases)
+    #Campo para tener el conteo de las ordenes de compra que se han generado por la venta
+    purchase_count = fields.Integer(string='Ordenes de compra', compute='_compute_purchase_ids')
     
