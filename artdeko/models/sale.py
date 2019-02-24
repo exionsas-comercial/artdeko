@@ -124,7 +124,7 @@ class SaleOrder(models.Model):
     @api.multi
     def _compute_purchase_ids(self):
         for order in self:
-            purchases = self.env['purchase.order']
+            purchases = self.env['purchase.order'].search([('sale_order', '=', order.id)])
             order.purchase_count = len(purchases)
     #Campo para tener el conteo de las ordenes de compra que se han generado por la venta
     purchase_count = fields.Integer(string='Ordenes de compra', compute='_compute_purchase_ids')
