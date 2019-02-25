@@ -73,11 +73,7 @@ class PurchaseOrder(models.Model):
     sale_order = fields.Many2one('sale.order', 'Venta')
     
 class PurchaseOrderLine(models.Model):
-    _inherit = 'purchase.order.line'
-    # Adicionar campo para descuentos
-    # discount
-    discount = fields.Float(string='Descuento (%)', digits=dp.get_precision('Discount'), default=0.0)
-    amount_discount_line = fields.Monetary(compute='_compute_amount', string='Importe descuento', store=True)
+    _inherit = 'purchase.order.line'    
     # Incluir el descuento en los cálculos
     @api.model
     @api.depends('product_qty', 'price_unit', 'taxes_id', 'discount')
@@ -93,3 +89,7 @@ class PurchaseOrderLine(models.Model):
                 'price_total': taxes['total_included'],
                 'price_subtotal': taxes['total_excluded'],
             })
+    # Adicionar campo para descuentos
+    # discount
+    discount = fields.Float(string='Descuento (%)', digits=dp.get_precision('Discount'), default=0.0)
+    amount_discount_line = fields.Monetary(compute='_compute_amount', string='Importe descuento', store=True)        
