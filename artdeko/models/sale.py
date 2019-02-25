@@ -111,9 +111,11 @@ class SaleOrder(models.Model):
         realizadas para un sale order. Puede ser una lista o
         el formulario en caso de una sola compra.
         '''
+        '''
         self.ensure_one()
+        '''
         action = self.env.ref('purchase.purchase_order_tree').read()[0]
-'''
+        '''
         purchases = self.env['purchase.order'].search([('sale_order', '=', self.id)])        
         if len(purchases) > 0:
             action['domain'] = [('id', 'in', purchases.sale_order)]
