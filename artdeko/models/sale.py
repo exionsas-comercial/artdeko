@@ -103,14 +103,14 @@ class SaleOrder(models.Model):
             },
         }        
         return invoice_request
-    '''
+    
     @api.multi
-    def action_view_receipt(self):
-        ''''''
-        Esta función retorna la vista donde se muestran las recepciones
-        de las compras realizadas para un sale order. Puede ser una lista o
-        el formulario en caso de una sola recepción.
-        ''''''
+    def action_view_purchases(self):
+        '''
+        Esta función retorna la vista donde se muestran las compras
+        realizadas para un sale order. Puede ser una lista o
+        el formulario en caso de una sola compra.
+        '''
         action = self.env.ref('stock.action_picking_tree_all').read()[0]
 
         pickings = self.mapped('picking_ids')
@@ -120,17 +120,36 @@ class SaleOrder(models.Model):
             action['views'] = [(self.env.ref('stock.view_picking_form').id, 'form')]
             action['res_id'] = pickings.id
         return action
-    '''
+    
+    @api.multi
+    def action_view_receipt(self):
+        '''
+        Esta función retorna la vista donde se muestran las recepciones
+        de las compras realizadas para un sale order. Puede ser una lista o
+        el formulario en caso de una sola recepción.
+        '''
+        action = self.env.ref('stock.action_picking_tree_all').read()[0]
+
+        pickings = self.mapped('picking_ids')
+        if len(pickings) > 1:
+            action['domain'] = [('id', 'in', pickings.ids)]
+        elif pickings:
+            action['views'] = [(self.env.ref('stock.view_picking_form').id, 'form')]
+            action['res_id'] = pickings.id
+        return action
+    
     @api.multi
     def _compute_purchase_ids(self):
         for order in self:
             purchases = self.env['purchase.order'].search([('sale_order', '=', order.id)])
             order.purchase_count = len(purchases)
+            
     @api.multi
     def _compute_receipt_ids(self):
         for order in self:
             receipts = self.env['purchase.order'].search_read([('sale_order', '=', order.id)], ['picking_count'])
-            order.receipt_count = sum([item['picking_count'] for item in receipts]) 
+            order.receipt_count = sum([item['picking_count'] for item in receipts])
+            
     #Campo para tener el conteo de las ordenes de compra que se han generado por la venta
     purchase_count = fields.Integer(string='Ordenes de compra', compute='_compute_purchase_ids')
     #Campo para tener el conteo de las recepciones relacionadas con la venta através de las compras
