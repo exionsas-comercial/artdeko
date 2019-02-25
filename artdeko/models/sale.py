@@ -111,14 +111,16 @@ class SaleOrder(models.Model):
         realizadas para un sale order. Puede ser una lista o
         el formulario en caso de una sola compra.
         '''
-        action = self.env.ref('stock.action_picking_tree_all').read()[0]
+        action = self.env.ref('purchase.purchase_order_tree').read()[0]
 
-        pickings = self.mapped('picking_ids')
-        if len(pickings) > 1:
-            action['domain'] = [('id', 'in', pickings.ids)]
-        elif pickings:
+        purchases = self.env['purchase.order'].search([('sale_order', '=', order.id)])        
+        if len(purchases) > 0:
+            action['domain'] = [('id', 'in', purchases.sale_order)]
+        '''
+        elif purchases:
             action['views'] = [(self.env.ref('stock.view_picking_form').id, 'form')]
             action['res_id'] = pickings.id
+        '''    
         return action
     
     @api.multi
