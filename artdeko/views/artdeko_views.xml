@@ -26,24 +26,12 @@
             <field name="name">Compras</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">purchase.order</field>
+            <field name="view_type">form</field>
             <field name="view_mode">tree</field>
+            <field name="context">{'search_default_todo':1, 'show_purchase': False}</field>
             <field name="search_view_id" ref="view_purchase_order_filter"/>
-            <field name="arch" type="xml">
-                <tree decoration-bf="message_unread==True" decoration-muted="state=='cancel'" decoration-info="state in ('wait','confirmed')" string="Purchase Order">
-                    <field name="message_unread" invisible="1"/>
-                    <field name="name" string="Reference"/>
-                    <field name="date_order" />
-                    <field name="partner_id"/>
-                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
-                    <field name="date_planned" invisible="context.get('quotation_only', False)"/>
-                    <field name="origin"/>
-                    <field name="amount_untaxed" sum="Total Untaxed amount" string="Untaxed" widget="monetary"/>
-                    <field name="amount_total" sum="Total amount" widget="monetary"/>
-                    <field name="currency_id" invisible="1"/>
-                    <field name="state"/>
-                    <field name="invoice_status" invisible="not context.get('show_purchase', True)"/>
-                </tree>
-            </field>
+            <field name="domain"></field>
+            
         </record>        
         <record id="view_order_form" model="ir.ui.view">
             <field name="name">sale.order.form.inherit.artdeko</field>
