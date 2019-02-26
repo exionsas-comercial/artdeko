@@ -114,7 +114,7 @@ class SaleOrder(models.Model):
         '''
         self.ensure_one()
         '''
-        action = self.env.ref('purchase.purchase_order_action_generic').read()[0]
+        action = self.env.ref('purchase.sale_purchase_orders_tree').read()[0]
         '''
         purchases = self.env['purchase.order'].search([('sale_order', '=', self.id)])        
         if len(purchases) > 0:
