@@ -115,7 +115,7 @@ class SaleOrder(models.Model):
         action = self.env.ref('artdeko.sale_purchase_orders_tree').read()[0]        
         purchases = self.env['purchase.order'].search([('sale_order', '=', self.id)])        
         if len(purchases) > 0:
-            action['domain'] = [('id', 'in', purchases.sale_order)]
+            action['domain'] = [('id', 'in', purchases.sale_order.ids)]
         '''    
         elif purchases:
             action['views'] = [(self.env.ref('stock.view_picking_form').id, 'form')]
