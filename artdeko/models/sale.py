@@ -138,7 +138,7 @@ class SaleOrder(models.Model):
             res = self.env.ref('stock.view_picking_form', False)
             action['views'] = [(res and res.id or False, 'form')]
             action['res_id'] = pick_ids.id
-        return result
+        return action
     
     @api.multi
     def _compute_purchase_ids(self):
