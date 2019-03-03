@@ -113,7 +113,7 @@ class SaleOrder(models.Model):
         '''
         self.ensure_one()        
         action = self.env.ref('artdeko.sale_purchase_orders_tree').read()[0]        
-        purchases = self.env['purchase.order'].search([('sale_order', '=', self.id)])        
+        purchases = self.env['purchase.order'].search([('sale_order', '=', self.id)])
         if len(purchases) > 1:
             action['domain'] = [('id', 'in', purchases.ids)]        
         elif purchases:
@@ -128,15 +128,17 @@ class SaleOrder(models.Model):
         de las compras realizadas para un sale order. Puede ser una lista o
         el formulario en caso de una sola recepción.
         '''
-        action = self.env.ref('stock.action_picking_tree_all').read()[0]
-
-        pickings = self.mapped('picking_ids')
-        if len(pickings) > 1:
-            action['domain'] = [('id', 'in', pickings.ids)]
-        elif pickings:
-            action['views'] = [(self.env.ref('stock.view_picking_form').id, 'form')]
-            action['res_id'] = pickings.id
-        return action
+        action = self.env.ref('stock.action_picking_tree_all').read()[0]        
+        action['context'] = {}
+        purchases = self.env['purchase.order'].search([('sale_order', '=', self.id)])
+        pick_ids = purchases.mapped('picking_ids')        
+        if not pick_ids or len(pick_ids) > 1:
+            action['domain'] = "[('id','in',%s)]" % (pick_ids.ids)
+        elif len(pick_ids) == 1:
+            res = self.env.ref('stock.view_picking_form', False)
+            action['views'] = [(res and res.id or False, 'form')]
+            action['res_id'] = pick_ids.id
+        return result
     
     @api.multi
     def _compute_purchase_ids(self):
