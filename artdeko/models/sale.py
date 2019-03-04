@@ -55,7 +55,7 @@ class SaleOrder(models.Model):
             line1 = {'product_id': line.product_id.id,'name': line.name,'product_uom': product_uom.id,'date_planned': date_planned,'price_unit': price_unit,'product_qty': line.product_uom_qty,}            
             line2 = (0,0,line1)
             line3.append(line2)        
-        purchase_lines['context'] = {'default_order_line': line3,'default_sale_order':sale.id,}
+        purchase_lines['context'] = {'default_order_line': line3,'default_sale_order':self.id,}
         return purchase_lines
     
     @api.multi    
