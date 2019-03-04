@@ -55,7 +55,7 @@ class SaleOrder(models.Model):
             line1 = {'product_id': line.product_id.id,'name': line.name,'product_uom': product_uom.id,'date_planned': date_planned,'price_unit': price_unit,'product_qty': line.product_uom_qty,}            
             line2 = (0,0,line1)
             line3.append(line2)        
-        purchase_lines['context'] = {'default_order_line': line3,}
+        purchase_lines['context'] = {'default_order_line': line3,'default_sale_order':sale.id,}
         return purchase_lines
     
     @api.multi    
@@ -107,9 +107,9 @@ class SaleOrder(models.Model):
     @api.multi
     def action_view_purchases(self):
         '''
-        Esta función retorna la vista donde se muestran las compras
-        realizadas para un sale order. Puede ser una lista o
-        el formulario en caso de una sola compra.
+        Return the view of the sale order´s purchases.
+        Can be the tree view if the list have mores than one items, or
+        the form view if there is only one purchase.        
         '''
         self.ensure_one()        
         action = self.env.ref('artdeko.sale_purchase_orders_tree').read()[0]        
@@ -124,9 +124,9 @@ class SaleOrder(models.Model):
     @api.multi
     def action_view_receipt(self):
         '''
-        Esta función retorna la vista donde se muestran las recepciones
-        de las compras realizadas para un sale order. Puede ser una lista o
-        el formulario en caso de una sola recepción.
+        Return the view of the pickings asociate with the sale order´s purchases.
+        Can be the tree view if the list have mores than one items, or
+        the form view if there is only one picking.        
         '''
         action = self.env.ref('stock.action_picking_tree_all').read()[0]        
         action['context'] = {}
@@ -142,12 +142,18 @@ class SaleOrder(models.Model):
     
     @api.multi
     def _compute_purchase_ids(self):
+        '''
+        Calculate the quantity of the purchases for each sale order and update the data base.
+        '''
         for order in self:
             purchases = self.env['purchase.order'].search([('sale_order', '=', order.id)])
             order.purchase_count = len(purchases)
             
     @api.multi
     def _compute_receipt_ids(self):
+        '''
+        Calculate the quantity of the pickings asociate with the purchases for each sale order and update the data base.
+        '''
         for order in self:
             receipts = self.env['purchase.order'].search_read([('sale_order', '=', order.id)], ['picking_count'])
             order.receipt_count = sum([item['picking_count'] for item in receipts])
