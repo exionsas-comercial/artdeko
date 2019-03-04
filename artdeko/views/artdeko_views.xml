@@ -5,6 +5,9 @@
             <field name="model">purchase.order</field>
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
             <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/field[@name='company_id']" position="after">
+                    <field name="sale_order"/>
+                </xpath>
                 <xpath expr="//form[1]/sheet[1]/notebook[1]/page[1]/field[@name='order_line']/tree[1]/field[@name='price_unit']" position="after">
                   <field name="discount"/>
                 </xpath>
@@ -18,6 +21,25 @@
                     <attribute name="invisible">True</attribute>
                 </xpath>                
             </field>
+        </record>
+        <record id="purchase_order_tree" model="ir.ui.view">
+            <field name="name">purchase.order.tree.inherited.artdeko</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='origin']" position="before">
+                    <field name="sale_order" string="Venta"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="sale_purchase_orders_tree">
+            <field name="name">Compras</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" eval="False"/> <!-- Force empty -->
+            <field name="view_id" ref="purchase.purchase_order_tree"/>        
         </record>        
         <record id="view_order_form" model="ir.ui.view">
             <field name="name">sale.order.form.inherit.artdeko</field>
@@ -36,6 +58,22 @@
                         string="Solicitar facturación" class="btn-primary" 
                         attrs="{'invisible': [('state', 'not in', ['sale'])]}"/>
                 </xpath>
+                <xpath expr="//button[@name='action_view_invoice']" position="after">                    
+                    <button type="object"
+                        name="action_view_purchases"
+                        class="oe_stat_button"
+                        icon="fa-credit-card"
+                        attrs="{'invisible': [('purchase_count', '=', 0)]}" groups="base.group_user">
+                        <field name="purchase_count" widget="statinfo" string="Compras"/>
+                    </button>
+                    <button type="object"
+                        name="action_view_receipt"
+                        class="oe_stat_button"
+                        icon="fa-thumbs-o-up"
+                        attrs="{'invisible': [('receipt_count', '=', 0)]}" groups="base.group_user">
+                        <field name="receipt_count" widget="statinfo" string="Recepciones"/>
+                    </button>              
+                </xpath>                          
                 <field name="note" position="attributes">
                     <attribute name="placeholder">Observaciones</attribute>
                 </field>
@@ -46,7 +84,7 @@
                     <attribute name="invisible">True</attribute>
                 </xpath>                
             </field>
-        </record>
+        </record>        
         <record id="crm_case_form_view_oppor" model="ir.ui.view">
             <field name="name">crm.lead.oppor.inherited.artdeko</field>
             <field name="model">crm.lead</field>
