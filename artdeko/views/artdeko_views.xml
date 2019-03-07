@@ -73,6 +73,9 @@
                         attrs="{'invisible': [('receipt_count', '=', 0)]}" groups="base.group_user">
                         <field name="receipt_count" widget="statinfo" string="Recepciones"/>
                     </button>              
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='partner_shipping_id']" position="after">
+                    <field name="division"/>
                 </xpath>                          
                 <field name="note" position="attributes">
                     <attribute name="placeholder">Observaciones</attribute>
