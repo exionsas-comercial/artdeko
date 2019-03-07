@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="division1" model="artdeko.division">
+            <field name="name">Cocinas</field>
+        </record>
+        <record id="division2" model="artdeko.division">
+            <field name="name">Baños</field>
+        </record>
+        <record id="division3" model="artdeko.division">
+            <field name="name">Recubrimientos</field>
+        </record>
+        <record id="division4" model="artdeko.division">
+            <field name="name">Armarios</field>
+        </record>
+        <record id="division5" model="artdeko.division">
+            <field name="name">Vestidores</field>
+        </record>
+    </data>
+</odoo>
