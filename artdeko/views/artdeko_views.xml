@@ -73,7 +73,14 @@
                         attrs="{'invisible': [('receipt_count', '=', 0)]}" groups="base.group_user">
                         <field name="receipt_count" widget="statinfo" string="Recepciones"/>
                     </button>              
-                </xpath>                          
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='partner_shipping_id']" position="after">
+                    <field name="division"/>
+                    <field name="team_id"/>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/field[@name='payment_term_id']" position="after">
+                    <field name="user_id"/>
+                </xpath>                       
                 <field name="note" position="attributes">
                     <attribute name="placeholder">Observaciones</attribute>
                 </field>
@@ -123,6 +130,17 @@
                 <xpath expr="//field[@name='partner_id']" position="after">
                     <field name="ref_partner_id" string="Cliente referencia"/>
                 </xpath>
+            </field>
+        </record>
+        <record id="view_picking_form" model="ir.ui.view">
+            <field name="name">stock.picking.form.inherit.artdeko</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/header[1]/button[3]" position="after">
+                    <button name="picking_force_cancel" type="object"
+                        string="Forzar cancelación" class="btn-primary"/>                    
+                </xpath>              
             </field>
         </record>        
     </data>

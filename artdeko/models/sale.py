@@ -162,4 +162,10 @@ class SaleOrder(models.Model):
     purchase_count = fields.Integer(string='Ordenes de compra', compute='_compute_purchase_ids')
     #Campo para tener el conteo de las recepciones relacionadas con la venta através de las compras
     receipt_count = fields.Integer(string='Recepciones', compute='_compute_receipt_ids')
+    #Campo para asociar las divisiones
+    division = fields.Many2one('artdeko.division', string="División")
+    #Campo para asociar los canales
+    team_id = fields.Many2one('crm.team', string='Canal', oldname='section_id')
+    #Campo para asociar los especificadores
+    user_id = fields.Many2one('res.users', string='Especificador', index=True)
     
