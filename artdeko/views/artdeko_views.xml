@@ -142,6 +142,16 @@
                         string="Forzar cancelación" class="btn-primary" invisible="True"/>                    
                 </xpath>              
             </field>
+        </record>
+        <record id="view_users_form" model="ir.ui.view">
+            <field name="name">res.users.form.inherit.artdeko</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="res.view_users_form"/>
+            <field name="arch" type="xml">         
+                <xpath expr="//form[1]/sheet[1]/div[2]/group[1]/field[@name='partner_id']" position="after">
+                    <field name="initials"/>                    
+                </xpath>                
+            </field>
         </record>        
     </data>
 </odoo>

@@ -19,8 +19,9 @@ class Users(models.Model):
                 name = "%s <%s>" % (partner.name, initials)            
             result.append((partner.id, name))
         return result
-    #Campo para establecer las iniciales
+    #Field to establish the initials of the user
     initials = fields.Char(string="Iniciales")
+    #Flag to indicate if user is specifier
     specifier_ok = fields.Boolean(
         'Es especificador', default=False,
         help="Indica si el usuario es especificador.")
