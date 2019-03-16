@@ -4,7 +4,7 @@
 from odoo import api, fields, models, SUPERUSER_ID, _
 
 class Partner(models.Model):
-    _inherit = 'res.users'
+    _inherit = 'res.partner'
     #Extend name_get to have the "initials" field in the name
     '''@api.multi
     def name_get(self):
