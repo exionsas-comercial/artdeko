@@ -6,4 +6,5 @@ from odoo import api, fields, models, SUPERUSER_ID, _
 class Partner(models.Model):
     _inherit = 'res.partner'
     
-    
+    #Field to establish the initials of the user
+    initials = fields.Char(string="Iniciales")
