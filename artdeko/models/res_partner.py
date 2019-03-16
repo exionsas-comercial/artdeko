@@ -3,10 +3,10 @@
 
 from odoo import api, fields, models, SUPERUSER_ID, _
 
-class Users(models.Model):
+class Partner(models.Model):
     _inherit = 'res.users'
     #Extend name_get to have the "initials" field in the name
-    @api.multi
+    '''@api.multi
     def name_get(self):
         result = []
         res = super(res.users, self).name_get()        
@@ -18,8 +18,11 @@ class Users(models.Model):
             if self._context.get('show_initials') and initials != '':
                 name = "%s <%s>" % (partner.name, initials)            
             result.append((partner.id, name))
-        return result
+        return result'''
     #Field to establish the initials of the user
     initials = fields.Char(string="Iniciales")
-    
+    #Flag to indicate if user is specifier
+    specifier_ok = fields.Boolean(
+        'Es especificador', default=False,
+        help="Indica si el usuario es especificador.")
     
