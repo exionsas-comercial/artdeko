@@ -7,4 +7,4 @@ from . import purchase
 from . import crm_lead
 from . import account_invoice
 from . import artdeko_models
-from . import res_partner
+from . import res_users
