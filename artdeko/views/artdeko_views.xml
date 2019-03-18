@@ -149,9 +149,9 @@
             <field name="inherit_id" ref="base.view_users_form"/>
             <field name="arch" type="xml">         
                 <xpath expr="//field[@name='login']" position="after">
-                    <label for="initials" class="oe_edit_only" string="Iniciales"/>
+                    <label for="initials" string="Iniciales"/>
                     <h2><field name="initials"/></h2>
-                    <field name="specifier_ok"  type="checkbox"/>                                  
+                    <field name="specifier_ok"  type="checkbox"  string="Especificador"/>                                  
                 </xpath>                
             </field>
         </record>
