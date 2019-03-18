@@ -151,8 +151,7 @@
                 <xpath expr="//field[@name='login']" position="after">
                     <label for="initials" class="oe_edit_only" string="Iniciales"/>
                     <h2><field name="initials"/></h2>
-                    <label for="specifier_ok" class="oe_edit_only" string="Especificador"/>
-                    <h2><field name="specifier_ok"  type="checkbox"/></h2>                                        
+                    <field name="specifier_ok"  type="checkbox"/>                                  
                 </xpath>                
             </field>
         </record>
