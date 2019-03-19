@@ -437,7 +437,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr t-foreach="doc.order_line" t-as="l">
+                        <tr>
                             <td class="text-right">
                                 <div class="row">
 			                        <div class="col-xs-2">
