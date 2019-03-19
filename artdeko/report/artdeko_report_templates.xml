@@ -429,7 +429,7 @@
                 </div>
             </div>
             <div style="padding:5px 0px 5px 0px;font-family: 'Rockwell' !important;">
-            	<table style="padding:5px; border:1px solid black !important;">
+            	<table>
                     <thead>
                         <tr>
                             <th class="text-center" style="width: 50%;">Datos proveedor</th>                            
@@ -438,7 +438,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="width: 50%;">
+                            <td style="width:50%; padding:5px; border:1px solid black !important;">
                                 <div class="row">
 			                        <div class="col-xs-4">
 			                            <p class="text-right">
@@ -526,7 +526,7 @@
 			                        </div>                                                
 			                    </div>
                             </td>
-                            <td class="text-right" style="width: 50%;">
+                            <td style="width:50%; padding:5px; border:1px solid black !important;">
                                 <div class="row">
                                 	<t t-if="doc.sale_order.division">
 				                        <div class="col-xs-4">
