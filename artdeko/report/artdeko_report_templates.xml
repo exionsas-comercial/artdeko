@@ -428,8 +428,8 @@
                     </div>                                    
                 </div>
             </div>
-            <div style="padding:5px 0px 5px 0px;font-family: 'Rockwell' !important;">
-                <div style="padding:5px; border:1px solid black !important;">    
+            <div class="row" style="padding:5px 0px 5px 0px;font-family: 'Rockwell' !important;">
+                <div class="col-xs-6" style="padding:5px; border:1px solid black !important;">    
                     <div class="row">
                         <div class="col-xs-2">
                             <p>
@@ -517,6 +517,64 @@
                         </div>                                                
                     </div>
                 </div>
+                <div class="col-xs-6" style="padding:5px; border:1px solid black !important;">    
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <p>
+                                <strong>División:</strong>
+                            </p>                        
+                        </div>
+                        <div class="col-xs-10">
+                            <p>
+                                <t t-if="doc.sale_order.division">
+                                    <span t-field="doc.sale_order.division.name"/>
+                                </t>                                
+                            </p>                        
+                        </div>                                                     
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <p>
+                                <strong>Canal:</strong>
+                            </p>                        
+                        </div>
+                        <div class="col-xs-10">
+                            <p>
+                                <t t-if="doc.sale_order.team_id">
+                                    <span t-field="doc.sale_order.team_id.name"/>
+                                </t>
+                            </p>                        
+                        </div>                                                     
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <p>
+                                <strong>Especificador:</strong>
+                            </p>                        
+                        </div>
+                        <div class="col-xs-10">
+                            <p>
+                                <t t-if="doc.sale_order.specifier_id">
+                                    <span t-field="doc.sale_order.specifier_id.initials"/>
+                                </t>
+                            </p>                        
+                        </div>
+                      </div>                    
+                    <div class="row">                                               
+                        <div class="col-xs-2">
+                            <p>
+                                <strong>Folio de venta:</strong>
+                            </p>                        
+                        </div>
+                        <div class="col-xs-10">
+                            <p>                
+                                <t t-if="doc.sale_order">
+                                    <span t-esc="doc.sale_order"/>
+                                </t>                            
+                            </p>                        
+                        </div>                                    
+                    </div>
+            	</div>
             </div>            
            
             <!-- Is there a discount on at least one line? -->
