@@ -428,8 +428,8 @@
                     </div>                                    
                 </div>
             </div>
-            <div class="row" style="padding:5px 0px 5px 0px;font-family: 'Rockwell' !important;">
-            	<table class="padding:5px; border:1px solid black !important;">
+            <div style="padding:5px 0px 5px 0px;font-family: 'Rockwell' !important;">
+            	<table style="padding:5px; border:1px solid black !important;">
                     <thead>
                         <tr style="background-color: rgb(166,166,166);">
                             <th class="text-center">Datos proveedor</th>                            
