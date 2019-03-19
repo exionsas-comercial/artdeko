@@ -432,13 +432,13 @@
             	<table style="padding:5px; border:1px solid black !important;">
                     <thead>
                         <tr style="background-color: rgb(166,166,166);">
-                            <th class="text-center">Datos proveedor</th>                            
-                            <th class="text-center">Datos de venta</th>                                                    
+                            <th class="text-center" style="width: 50%;">Datos proveedor</th>                            
+                            <th class="text-center" style="width: 50%;">Datos de venta</th>                                                    
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text-right">
+                            <td class="text-right" style="width: 50%;">
                                 <div class="row">
 			                        <div class="col-xs-5">
 			                            <p>
@@ -526,7 +526,7 @@
 			                        </div>                                                
 			                    </div>
                             </td>
-                            <td class="text-right">
+                            <td class="text-right" style="width: 50%;">
                                 <div class="row">
 			                        <div class="col-xs-5">
 			                            <p>
