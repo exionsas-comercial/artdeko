@@ -897,23 +897,25 @@
                     <table class="table table-condensed mt48" t-if="doc.state!='done'">
                         <thead>
                             <tr>
-                                <th><strong>Product</strong></th>
-                                <th><strong>Quantity</strong></th>
+                            	<th class="text-center">Código</th>
+                                <th>Descripción</th>
+                                <th class="text-right">Cantidad</th>                                
                             </tr>
                         </thead>
                         <tbody>
                             <t t-set="lines" t-value="doc.move_lines.filtered(lambda x: x.product_uom_qty)"/>
                             <tr t-foreach="lines" t-as="move">
-                                <td>
-                                    <span t-field="move.product_id"/>
+                                <td class="text-center" style="border-top:1px solid black !important;">                                
+                                    <span t-field="move.product_id.default_code"/>
                                     <p t-if="doc.picking_type_code == 'outgoing'">
                                         <span t-field="move.product_id.sudo().description_pickingout"/>
-                                    </p>
+                                    </p>                                    
                                     <p t-if="doc.picking_type_code == 'incoming'">
                                         <span t-field="move.product_id.sudo().description_pickingin"/>
                                     </p>
                                 </td>
-                                <td>
+                                <td style="border-top:1px solid black !important;"><span t-field="move.product_id.name"/></td>
+                                <td class="text-right" style="border-top:1px solid black !important;">
                                     <span t-field="move.product_uom_qty"/>
                                     <span t-field="move.product_uom"/>
                                 </td>
@@ -924,17 +926,15 @@
                         <t t-set="has_serial_number" t-value="doc.move_line_ids.mapped('lot_id')" groups="stock.group_production_lot"/>
                         <thead>
                             <tr>
-                                <th><strong>Product</strong></th>
-                                <th name="lot_serial" t-if="has_serial_number">
-                                    Lot/Serial Number
-                                </th>
-                                <th class="text-center"><strong>Quantity</strong></th>
+                                <th class="text-center">Código</th>
+                                <th>Descripción</th>
+                                <th class="text-right">Cantidad</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr t-foreach="doc.move_line_ids" t-as="move_line">
-                                <td>
-                                    <span t-field="move_line.product_id"/>
+                                <td class="text-center" style="border-top:1px solid black !important;">
+                                    <span t-field="move_line.product_id.default_code"/>
                                     <p t-if="doc.picking_type_code == 'outgoing'">
                                         <span t-field="move_line.product_id.sudo().description_pickingout"/>
                                     </p>
@@ -942,26 +942,8 @@
                                         <span t-field="move_line.product_id.sudo().description_pickingin"/>
                                     </p>
                                 </td>
-                                <t t-if="has_serial_number">
-                                   <td>
-                                        <table width="100%">
-                                            <tr>
-                                                <td>
-                                                     <span t-field="move_line.lot_id"/>
-                                                     <t t-if="not move_line.lot_id">
-                                                         <span t-field="move_line.lot_name"/>
-                                                     </t>
-                                                 </td>
-                                                 <td name="lot_qty">
-                                                     <t t-if="move_line.product_qty"> 
-                                                        <span t-field="move_line.product_qty"/>
-                                                    </t>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                  </td>
-                                </t>
-                                <td class="text-center">
+                                <td style="border-top:1px solid black !important;"><span t-field="move_line.product_id.name"/></td>
+                                <td class="text-right" style="border-top:1px solid black !important;">
                                     <span t-field="move_line.qty_done"/>
                                     <span t-field="move_line.product_uom_id"/>
                                 </td>
