@@ -938,7 +938,7 @@
                                     <p t-if="doc.picking_type_code == 'outgoing'">
                                         <span t-field="move_line.product_id.sudo().description_pickingout"/>
                                     </p>
-                                    <p t-if="o.picking_type_code == 'incoming'">
+                                    <p t-if="doc.picking_type_code == 'incoming'">
                                         <span t-field="move_line.product_id.sudo().description_pickingin"/>
                                     </p>
                                 </td>
