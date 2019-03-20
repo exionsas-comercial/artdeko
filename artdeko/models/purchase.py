@@ -69,7 +69,7 @@ class PurchaseOrder(models.Model):
                     price_unit = seller.product_uom._compute_price(price_unit, line.product_uom)
 
                 line.price_unit = price_unit
-    #Conectar purchase oreder con sale order
+    #Conectar purchase order con sale order
     sale_order = fields.Many2one('sale.order', 'Venta')
     
 class PurchaseOrderLine(models.Model):

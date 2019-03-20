@@ -12,6 +12,8 @@ class AccountInvoice(models.Model):
     _inherit = 'account.invoice'    
     # Adicionar campo de cliente de referencia
     ref_partner_id = fields.Many2one('res.partner', string='Cliente referencia', change_default=True, readonly=True, states={'draft': [('readonly', False)]}, track_visibility='always')
+    #Conectar account.invoice con sale order
+    sale_order = fields.Many2one('sale.order', 'Venta')
     
     @api.multi
     def _l10n_mx_edi_get_payment_policy(self):

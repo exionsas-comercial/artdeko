@@ -148,6 +148,7 @@ class SaleOrder(models.Model):
         for order in self:
             purchases = self.env['purchase.order'].search([('sale_order', '=', order.id)])
             order.purchase_count = len(purchases)
+            order.purchase_string = purchases.id
             
     @api.multi
     def _compute_receipt_ids(self):
@@ -160,6 +161,8 @@ class SaleOrder(models.Model):
             
     #Campo para tener el conteo de las ordenes de compra que se han generado por la venta
     purchase_count = fields.Integer(string='Ordenes de compra', compute='_compute_purchase_ids')
+    #Campo para tener en un string los códigos de las ordenes de compra que se han generado por la venta
+    purchase_string = fields.Char(string='Ordenes de compra', compute='_compute_purchase_ids')
     #Campo para tener el conteo de las recepciones relacionadas con la venta através de las compras
     receipt_count = fields.Integer(string='Recepciones', compute='_compute_receipt_ids')
     #Campo para asociar las divisiones

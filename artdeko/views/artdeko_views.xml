@@ -116,6 +116,7 @@
                 </xpath>
                 <xpath expr="//field[@name='partner_shipping_id']" position="after">
                     <field name="ref_partner_id" string="Cliente referencia"/>
+                    <field name="sale_order" string="Folio de venta"/>
                 </xpath>
                 <field name="comment" position="attributes">
                     <attribute name="placeholder">Observaciones</attribute>
