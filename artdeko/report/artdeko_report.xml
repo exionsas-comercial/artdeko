@@ -26,6 +26,16 @@
             print_report_name="'Cotización - %s' % (object.name)"
             paperformat="paperformat_artdeko_letter"
         />
+        <report 
+            id="action_report_deliveryslip_artdeko"
+            string="Hoja de entrega"
+            model="stock.picking" 
+            report_type="qweb-pdf"
+            file="artdeko.report_deliveryslip" 
+            name="artdeko.report_deliveryslip"
+            print_report_name="'Entrega - %s' % (object.name)"
+            paperformat="paperformat_artdeko_letter"
+        />
         <!--<report 
             id="action_report_saleorder_quotation_artdeko2"
             string="Cotizacion2"

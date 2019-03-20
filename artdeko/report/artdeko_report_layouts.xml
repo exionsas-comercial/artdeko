@@ -49,7 +49,7 @@
         <div class="footer">
             <div class="row" style="padding-top:50px;">
                 <div class="col-xs-6">
-                    <img style="padding-left:100px;" class="img img-responsive" src="/artdeko/static/src/img/logo_footer2.png" width="300px"/>                    
+                    <img style="padding-left:50px;" class="img img-responsive" src="/artdeko/static/src/img/logo_footer2.png" width="400px"/>                    
                 </div>                                
             </div>
         </div>

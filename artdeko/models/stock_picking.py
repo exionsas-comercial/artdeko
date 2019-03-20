@@ -14,3 +14,6 @@ class Picking(models.Model):
         for move in self.move_lines:
             # Set the "state" to cancel foreach move
             move.write({'state': 'cancel'})
+    
+    #Conectar purchase order con sale order
+    sale_order = fields.Many2one('sale.order', 'Venta')           
