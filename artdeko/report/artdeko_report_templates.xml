@@ -922,7 +922,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="table table-condensed mt48" t-if="doc.move_line_ids and o.state=='done'">
+                    <table class="table table-condensed mt48" t-if="doc.move_line_ids and doc.state=='done'">
                         <t t-set="has_serial_number" t-value="doc.move_line_ids.mapped('lot_id')" groups="stock.group_production_lot"/>
                         <thead>
                             <tr>
