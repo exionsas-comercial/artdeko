@@ -79,7 +79,7 @@
                     <field name="team_id"/>
                 </xpath>
                 <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/field[@name='payment_term_id']" position="after">
-                    <field name="user_id"/>
+                    <field name="specifier_id"/>
                 </xpath>                       
                 <field name="note" position="attributes">
                     <attribute name="placeholder">Observaciones</attribute>
@@ -116,6 +116,7 @@
                 </xpath>
                 <xpath expr="//field[@name='partner_shipping_id']" position="after">
                     <field name="ref_partner_id" string="Cliente referencia"/>
+                    <field name="sale_order" string="Folio de venta"/>
                 </xpath>
                 <field name="comment" position="attributes">
                     <attribute name="placeholder">Observaciones</attribute>
@@ -139,9 +140,25 @@
             <field name="arch" type="xml">
                 <xpath expr="//form[1]/header[1]/button[3]" position="after">
                     <button name="picking_force_cancel" type="object"
-                        string="Forzar cancelación" class="btn-primary"/>                    
-                </xpath>              
+                        string="Forzar cancelación" class="btn-primary" invisible="True"/>                    
+                </xpath>
+                <xpath expr="//field[@name='location_id']" position="after">
+                    <field name="sale_order" string="Folio de venta"/>
+                </xpath>               
             </field>
-        </record>        
+        </record>
+        <record id="view_users_form" model="ir.ui.view">
+            <field name="name">res.users.form.inherit.artdeko</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">         
+                <xpath expr="//field[@name='login']" position="after">
+                    <label for="initials" string="Iniciales"/>
+                    <h2><field name="initials"/></h2>
+                    <label for="specifier_ok" string="Es especificador"/>
+                    <field name="specifier_ok"  type="checkbox"  string="Especificador"/>                                  
+                </xpath>                
+            </field>
+        </record>
     </data>
 </odoo>

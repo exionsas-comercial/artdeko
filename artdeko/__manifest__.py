@@ -22,7 +22,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'product', 'sale','purchase','crm','account'],
+    'depends': ['base', 
+                'base_setup', 
+                'product', 
+                'sale',
+                'purchase',
+                'crm',
+                'account',
+                'contacts'],
 
     # always loaded
     'data': [
@@ -35,7 +42,6 @@
         'report/artdeko_report_layouts.xml',
         'report/artdeko_report_invoice_template.xml',
         'report/artdeko_l10n_mx_edi_report_invoice.xml',
-        'data/division_data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
