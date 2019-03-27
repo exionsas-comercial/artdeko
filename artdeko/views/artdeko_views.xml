@@ -147,7 +147,6 @@
                 </xpath>               
             </field>
         </record>
-        <menuitem id="internal_control_menu" name="Control interno" parent="stock.menu_stock_warehouse_mgmt" action="action_internal_control_tree"/>
         <record id="action_internal_control_tree" model="ir.actions.act_window">
             <field name="name">Control interno</field>
             <field name="res_model">stock.picking</field>
@@ -156,6 +155,8 @@
             <field name="view_id" ref="view_internal_control_report"/>
             <field name="target">new</field>
         </record>
+        <menuitem id="internal_control_menu" name="Control interno" parent="stock.menu_stock_warehouse_mgmt" action="action_internal_control_tree"/>
+        
         <record model="ir.ui.view" id="view_internal_control_report">
             <field name="name">stock.picking.list.artdeko</field>
             <field name="model">stock.picking</field>
