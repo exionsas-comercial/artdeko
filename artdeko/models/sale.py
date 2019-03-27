@@ -145,10 +145,16 @@ class SaleOrder(models.Model):
         '''
         Calculate the quantity of the purchases for each sale order and update the data base.
         '''
+        purchases_names = ""
         for order in self:
             purchases = self.env['purchase.order'].search([('sale_order', '=', order.id)])
             order.purchase_count = len(purchases)
-            order.purchase_string = purchases.ids
+            if order.purchase_count == 1:
+                purchases_names = self.env['purchase.order'].search([('sale_order', '=', order.id)], limit=1).name
+            elif order.purchase_count > 1:                
+                for purchase in purchases:
+                    purchases_names = purchases_names + purchase.name + ", "
+            order.purchase_string = purchases_names
             
     @api.multi
     def _compute_receipt_ids(self):

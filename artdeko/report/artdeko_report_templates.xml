@@ -578,7 +578,7 @@
                                         </div>
                                         <div class="col-xs-8">
                                             <p> 
-                                                <span t-esc="doc.sale_order.id"/>				                                                            
+                                                <span t-esc="doc.sale_order.name"/>				                                                            
                                             </p>                        
                                         </div>
                                     </t>                                    
@@ -877,7 +877,7 @@
 	                                        </div>
 	                                        <div class="col-xs-8">
 	                                            <p> 
-	                                                <span t-esc="doc.sale_order.id"/>				                                                            
+	                                                <span t-esc="doc.sale_order.name"/>				                                                            
 	                                            </p>                        
 	                                        </div>
 	                                    </t>                                    
