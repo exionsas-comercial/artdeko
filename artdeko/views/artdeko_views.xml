@@ -157,7 +157,7 @@
             <field name="target">new</field>
         </record>
         <record model="ir.ui.view" id="view_internal_control_report">
-            <field name="name">stock.picking.list</field>
+            <field name="name">stock.picking.list.artdeko</field>
             <field name="model">stock.picking</field>
             <field name="arch" type="xml">
                 <tree string="Control interno">
