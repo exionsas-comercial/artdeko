@@ -154,7 +154,10 @@
             <field name="arch" type="xml">
                 <tree string="Control interno">
                     <field name="name"/>
-                    <field name="origin"/>                    
+                    <field name="origin"/>
+                    <field name="state"/>
+                    <field name="priority" invisible="1"/>
+                    <field name="picking_type_id" invisible="1"/>                    
                 </tree>
             </field>
         </record>
