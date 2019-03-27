@@ -148,7 +148,7 @@ class SaleOrder(models.Model):
         for order in self:
             purchases = self.env['purchase.order'].search([('sale_order', '=', order.id)])
             order.purchase_count = len(purchases)
-            order.purchase_string = purchases.ids
+            order.purchase_string = purchases.names
             
     @api.multi
     def _compute_receipt_ids(self):
