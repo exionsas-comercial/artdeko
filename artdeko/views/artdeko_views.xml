@@ -152,13 +152,18 @@
             <field name="model">stock.picking</field>
             <field name="priority" eval="30"/>
             <field name="arch" type="xml">
-                <tree string="Control interno">
+                <search string="Control interno">
                     <field name="name"/>
                     <field name="origin"/>
+                    <field name="guide_number"/>
+                    <field name="departure_date"/>
+                    <field name="estimated_delivery_date"/>
+                    <field name="delivery_date"/>
+                    <field name="shipping_cost"/>
                     <field name="state"/>
                     <field name="priority" invisible="1"/>
                     <field name="picking_type_id" invisible="1"/>                    
-                </tree>
+                </search>
             </field>
         </record>
         <record id="action_internal_control_tree" model="ir.actions.act_window">
