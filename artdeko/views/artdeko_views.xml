@@ -147,6 +147,7 @@
                 </xpath>               
             </field>
         </record>
+        <!--
         <record id="view_internal_control_report" model="ir.ui.view">
             <field name="name">stock.picking.list.artdeko</field>
             <field name="model">stock.picking</field>
@@ -192,7 +193,7 @@
                 </search>
             </field>
         </record>
-        <!--
+        -->
         <record model="ir.ui.view" id="view_internal_control_report">
             <field name="name">stock.picking.list.artdeko</field>
             <field name="model">stock.picking</field>
@@ -211,7 +212,7 @@
                     <field name="picking_type_id" invisible="1"/>                    
                 </search>
             </field>
-        </record>-->
+        </record>
         <record id="action_internal_control_tree" model="ir.actions.act_window">
             <field name="name">Control interno</field>
             <field name="res_model">stock.picking</field>
