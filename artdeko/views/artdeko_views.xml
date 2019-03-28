@@ -218,9 +218,15 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,kanban,form,calendar</field>
             <field name="domain"></field>
+            <field name="context">{
+                    'search_default_picking_type_id': [active_id],
+                    'default_picking_type_id': active_id,
+                    'contact_display': 'partner_address',
+            }
+            </field>
             <field name="search_view_id" ref="view_internal_control_report"/>
         </record>
-        <menuitem id="internal_control_menu" name="Control interno" parent="stock.menu_stock_warehouse_mgmt" action="action_internal_control_tree"/>     
+        <menuitem id="internal_control_menu" name="Control interno" parent="stock.menu_stock_warehouse_mgmt" action="action_internal_control_tree" groups="stock.group_stock_manager,stock.group_stock_user"/>     
         
         <record id="view_users_form" model="ir.ui.view">
             <field name="name">res.users.form.inherit.artdeko</field>
