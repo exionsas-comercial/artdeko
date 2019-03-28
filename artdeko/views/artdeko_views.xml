@@ -179,6 +179,7 @@
                     <field name="product_id"/>
                     <field name="picking_type_id"/>
                     <field name="group_id"/>
+                    <field name="state"/>
                     <group expand="0" string="Group By">
                         <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
                         <filter string="Order Date" domain="[]"  context="{'group_by':'date'}"/>
