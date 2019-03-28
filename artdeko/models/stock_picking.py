@@ -23,7 +23,7 @@ class Picking(models.Model):
     #Conectar picking con sale order
     sale_order = fields.Many2one('sale.order', 'Venta')
     #Número de guía del pedido
-    guide_number = fields.Char(string='Número de guía',index=True)
+    guide_number = fields.Char(string='Número de guía')
     #Fecha de salida del pedido desde el proveedor
     departure_date = fields.Datetime('Fecha salida proveedor')
     #Fecha estimada de entrega del proveedor
