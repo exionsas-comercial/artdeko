@@ -147,7 +147,7 @@
                 </xpath>               
             </field>
         </record>
-        <!--<record id="view_internal_control_report" model="ir.ui.view">
+        <record id="view_internal_control_report" model="ir.ui.view">
             <field name="name">stock.picking.list.artdeko</field>
             <field name="model">stock.picking</field>
             <field name="priority" eval="30"/>
@@ -191,7 +191,7 @@
                 </search>
             </field>
         </record>
-        
+        <!--
         <record model="ir.ui.view" id="view_internal_control_report">
             <field name="name">stock.picking.list.artdeko</field>
             <field name="model">stock.picking</field>
@@ -222,7 +222,7 @@
                     'contact_display': 'partner_address',
             }
             </field>            
-            <field name="search_view_id" ref="stock.view_picking_internal_search"/>
+            <field name="search_view_id" ref="view_internal_control_report"/>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click here to create a new transfer.
