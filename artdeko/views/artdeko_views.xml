@@ -175,8 +175,7 @@
                     <filter string="Future Activities" name="activities_upcoming_all"
                         domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
                         ]"/>
-                    <field name="partner_id" filter_domain="[('partner_id','child_of',self)]"/>
-                    <field name="guide_number"/>
+                    <field name="partner_id" filter_domain="[('partner_id','child_of',self)]"/>                    
                     <field name="product_id"/>
                     <field name="picking_type_id"/>
                     <field name="group_id"/>
@@ -185,6 +184,7 @@
                         <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
                         <filter string="Order Date" domain="[]"  context="{'group_by':'date'}"/>
                         <filter string="Expected Date" domain="[]"  context="{'group_by':'scheduled_date'}"/>
+                        <filter string="Número de guía" domain="[]"  context="{'group_by':'guide_number'}"/>
                         <filter string="Origin" domain="[]" context="{'group_by':'origin'}"/>
                         <filter name="picking_type" string="Operation Type" domain="[]" context="{'group_by':'picking_type_id'}"/>
                         <filter string="Procurement Group" domain="[]" context="{'group_by':'group_id'}"/>
