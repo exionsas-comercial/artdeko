@@ -18,13 +18,13 @@
             <field name="name">stock.picking.list.artdeko</field>
             <field name="model">stock.picking</field>
             <field name="priority" eval="30"/>
-            <field name="arch" type="xml">                
-                <tree string="Control interno" editable="top">
-                    <field name="name"/>
-                    <field name="origin"/>
+            <field name="arch" type="xml">               
+                <tree string="Control interno" editable="top" create="false">
+                    <field name="name" readonly="1"/>
+                    <field name="origin" readonly="1"/>
                     <field name="guide_number"/>
                     <field name="departure_date"/>
-                    <field name="estimated_delivery_date"/>
+                    <field name="scheduled_date"/>
                     <field name="delivery_date"/>
                     <field name="shipping_cost"/>
                     <field name="state"/>
