@@ -179,7 +179,7 @@
                     'contact_display': 'partner_address',
             }
             </field>            
-            <field name="view_id" ref="view_internal_control_report"/>
+            <field name="view_id" ref="artdeko.view_internal_control_report"/>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click here to create a new transfer.
