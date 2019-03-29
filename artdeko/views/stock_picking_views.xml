@@ -40,7 +40,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>                       
             <field name="view_id" ref="view_internal_control_report"/> 
-            <field name="context">{'picking_type_code': 'incoming'}</field>           
+            <field name="domain">[('picking_type_code','=', 'incoming')]</field>           
         </record>        
         <menuitem id="internal_control_menu" name="Control interno" parent="stock.menu_stock_warehouse_mgmt" sequence="7" action="action_internal_control_tree" groups="stock.group_stock_manager,stock.group_stock_user"/>                    
     </data>
