@@ -152,7 +152,7 @@
         <record model="ir.ui.view" id="view_internal_control_report">
             <field name="name">stock.picking.list.artdeko</field>
             <field name="model">stock.picking</field>
-            <field name="priority" eval="30"/>
+            <field name="priority">10</field>            
             <field name="arch" type="xml">                
                 <tree string="Control interno">
                     <field name="name"/>
@@ -173,9 +173,8 @@
             <field name="res_model">stock.picking</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-                       
-            <field name="view_id" ref="view_internal_control_report"/>
+            <field name="view_mode">tree,form</field>                       
+            <field name="view_id" ref="artdeko.view_internal_control_report"/>
             
         </record>
         
