@@ -132,54 +132,7 @@
                     <field name="ref_partner_id" string="Cliente referencia"/>
                 </xpath>
             </field>
-        </record>
-        <record id="view_picking_form" model="ir.ui.view">
-            <field name="name">stock.picking.form.inherit.artdeko</field>
-            <field name="model">stock.picking</field>
-            <field name="inherit_id" ref="stock.view_picking_form"/>
-            <field name="arch" type="xml">
-                <xpath expr="//form[1]/header[1]/button[3]" position="after">
-                    <button name="picking_force_cancel" type="object"
-                        string="Forzar cancelación" class="btn-primary" invisible="True"/>                    
-                </xpath>
-                <xpath expr="//field[@name='location_id']" position="after">
-                    <field name="sale_order" string="Folio de venta"/>
-                </xpath>               
-            </field>
-        </record>
-        
-        
-        <record model="ir.ui.view" id="view_internal_control_report">
-            <field name="name">stock.picking.list.artdeko</field>
-            <field name="model">stock.picking</field>
-            <field name="priority">10</field>            
-            <field name="arch" type="xml">                
-                <tree string="Control interno">
-                    <field name="name"/>
-                    <field name="origin"/>
-                    <field name="guide_number"/>
-                    <field name="departure_date"/>
-                    <field name="estimated_delivery_date"/>
-                    <field name="delivery_date"/>
-                    <field name="shipping_cost"/>
-                    <field name="state"/>
-                    <field name="priority" invisible="1"/>
-                    <field name="picking_type_id" invisible="1"/>                    
-                </tree>
-            </field>
-        </record>
-        <record id="action_internal_control_tree" model="ir.actions.act_window">
-            <field name="name">Control interno</field>
-            <field name="res_model">stock.picking</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>                       
-            <field name="view_id" ref="artdeko.view_internal_control_report"/>
-            
-        </record>
-        
-        <menuitem id="internal_control_menu" name="Control interno" parent="stock.menu_stock_warehouse_mgmt" sequence="6" action="action_internal_control_tree" groups="stock.group_stock_manager,stock.group_stock_user"/>     
-        
+        </record>        
         <record id="view_users_form" model="ir.ui.view">
             <field name="name">res.users.form.inherit.artdeko</field>
             <field name="model">res.users</field>

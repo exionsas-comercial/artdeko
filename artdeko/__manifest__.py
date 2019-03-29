@@ -37,6 +37,7 @@
         'views/views.xml',
         'views/templates.xml',
         'views/artdeko_views.xml',
+        'views/stock_picking_views.xml',
         'report/artdeko_report.xml',
         'report/artdeko_report_templates.xml',
         'report/artdeko_report_layouts.xml',
