@@ -19,7 +19,7 @@
             <field name="model">stock.picking</field>
             <field name="priority" eval="30"/>
             <field name="arch" type="xml">                
-                <tree string="Control interno">
+                <tree string="Control interno" editable="top">
                     <field name="name"/>
                     <field name="origin"/>
                     <field name="guide_number"/>
