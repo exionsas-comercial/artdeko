@@ -25,9 +25,7 @@ class Picking(models.Model):
     #Número de guía del pedido
     guide_number = fields.Char(string='Número de guía')
     #Fecha de salida del pedido desde el proveedor
-    departure_date = fields.Datetime('Fecha salida proveedor')
-    #Fecha estimada de entrega del proveedor
-    estimated_delivery_date = fields.Datetime('Fecha estimada de entrega')
+    departure_date = fields.Datetime('Fecha salida proveedor')    
     #Fecha real de entrega del proveedor
     delivery_date = fields.Datetime('Fecha real de entrega')
     #Costos de envío
