@@ -32,12 +32,12 @@
             <t t-set="company" t-value="res_company"/>
         </t>
         <div class="header">
-            <div class="row" style="padding-top:120px;">
+            <div class="row" style="padding-top:50px;">
                 <div class="col-xs-6">
                     <img style="padding-left:70px;" class="img img-responsive" src="/artdeko/static/src/img/logo.png" width="310px"/>                    
                 </div>                
                 <div class="col-xs-6" name="company_address">                        
-                    <img style="padding-left:70px;" class="img img-responsive" src="/artdeko/static/src/img/direccion.png" width="350px"/>
+                    <img style="padding-left:70px;" class="img img-responsive" src="/artdeko/static/src/img/direccion.png" width="310px"/>
                 </div>
             </div>
         </div>
