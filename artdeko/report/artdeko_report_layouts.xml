@@ -32,12 +32,12 @@
             <t t-set="company" t-value="res_company"/>
         </t>
         <div class="header">
-            <div class="row" style="padding-top:50px;">
+            <div class="row" style="padding-top:120px;">
                 <div class="col-xs-6">
-                    <img style="padding-left:100px;" class="img img-responsive" src="/artdeko/static/src/img/logo.png" width="300px"/>                    
+                    <img style="padding-left:70px;" class="img img-responsive" src="/artdeko/static/src/img/logo.png" width="350px"/>                    
                 </div>                
                 <div class="col-xs-6" name="company_address">                        
-                    <img style="padding-left:100px;" class="img img-responsive" src="/artdeko/static/src/img/direccion.png" width="300px"/>
+                    <img style="padding-left:70px;" class="img img-responsive" src="/artdeko/static/src/img/direccion.png" width="400px"/>
                 </div>
             </div>
         </div>
@@ -47,9 +47,9 @@
         </div>
         
         <div class="footer">
-            <div class="row" style="padding-top:50px;">
+            <div class="row" style="padding-top:50px;padding-buttom:80px;">
                 <div class="col-xs-6">
-                    <img style="padding-left:50px;" class="img img-responsive" src="/artdeko/static/src/img/logo_footer2.png" width="400px"/>                    
+                    <img style="padding-left:70px;" class="img img-responsive" src="/artdeko/static/src/img/logo_footer2.png" width="400px"/>                    
                 </div>                                
             </div>
         </div>
