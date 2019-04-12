@@ -37,7 +37,7 @@
                     <img style="padding-left:70px;" class="img img-responsive" src="/artdeko/static/src/img/logo.png" width="300px"/>                    
                 </div>                
                 <div class="col-xs-6" name="company_address">                        
-                    <img style="padding-left:70px;padding-right:60px;" align="right" class="img img-responsive" src="/artdeko/static/src/img/direccion.png" width="315px"/>
+                    <img style="padding-right:60px;" align="right" class="img img-responsive" src="/artdeko/static/src/img/direccion.png" width="315px"/>
                 </div>
             </div>
         </div>
