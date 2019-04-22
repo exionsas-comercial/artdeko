@@ -15,7 +15,9 @@
                 <xpath expr="//page[@name='extra']" position="inside">
 	                <separator string="Información de recepción"/>	                
 	                <group name="artdeko_exta_info">
-	                	<field name="guide_number"/>	                     
+	                	<field name="guide_number"/>
+	                	<field name="departure_date"/>
+	                	<field name="shipping_cost"/>                     
 	                </group>
                 </xpath>               
             </field>
