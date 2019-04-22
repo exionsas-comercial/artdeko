@@ -18,7 +18,7 @@
 	                	<field name="guide_number"/>
 	                	<field name="departure_date"/>
 	                	<field name="shipping_cost"/>
-	                	<field name="shipping_cost" readonly="1"/>                     
+	                	<field name="date_done" string="Fecha real de recepción" readonly="1"/>                     
 	                </group>
                 </xpath>               
             </field>
