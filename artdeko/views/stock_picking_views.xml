@@ -17,7 +17,8 @@
 	                <group name="artdeko_exta_info">
 	                	<field name="guide_number"/>
 	                	<field name="departure_date"/>
-	                	<field name="shipping_cost"/>                     
+	                	<field name="shipping_cost"/>
+	                	<field name="shipping_cost" readonly="1"/>                     
 	                </group>
                 </xpath>               
             </field>
