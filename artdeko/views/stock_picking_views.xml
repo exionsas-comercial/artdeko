@@ -11,6 +11,9 @@
                 </xpath>
                 <xpath expr="//field[@name='location_id']" position="after">
                     <field name="sale_order" string="Folio de venta"/>
+                </xpath>
+                <xpath expr="//group[@name='carrier_data']" position="inside">	                
+	                <field name="guide_number" attrs="{'readonly': [('state', '=', 'done')]}"/>	                	                    
                 </xpath>               
             </field>
         </record>
