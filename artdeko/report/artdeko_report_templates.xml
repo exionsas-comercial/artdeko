@@ -445,7 +445,7 @@
                                                 <td class="text-left" width="30%">112180000010547251<br></br>ARTDEKO SA DE CV<br></br>CANCUN QROO 77500</td>                                                
                                             </tr>
                                             <tr>
-                                                <th class="text-center" style="vertical-align:middle;border-bottom: 1px solid black;" width="35%">Beneficiary info</th>
+                                                <th class="text-center" style="vertical-align:middle;border-top: 1px solid black;" width="35%">Beneficiary info</th>
                                                 <td class="text-left" style="border-top: 1px solid black;border-left: 1px solid black; padding-left:5px;" colspan="2" width="65%">/IBK/SCBLDEFTX, DON´T CONVERT</td>                                                
                                             </tr>
                                         </tbody>
