@@ -209,9 +209,49 @@
                                                             <strong>Especificador:</strong>
                                                         </p>                        
                                                     </div>
-                                                    <div class="col-xs-3">
+                                                    <div class="col-xs-10">
                                                         <p>
                                                             <span t-field="o.sale_order.specifier_id.name"/>				                                
+                                                        </p>                        
+                                                    </div>
+                                                </t>
+                                            </div>
+                                            <div class="row">
+                                                <t t-if="o.sale_order.division">
+                                                    <div class="col-xs-2">
+                                                        <p class="text-right">
+                                                            <strong>División:</strong>
+                                                        </p>                        
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <p>
+                                                            <span t-field="o.sale_order.division.name"/>				                                                                
+                                                        </p>                        
+                                                    </div>
+                                                </t>
+                                                <t t-if="o.sale_order.team_id">
+                                                    <div class="col-xs-2">
+                                                        <p class="text-right">
+                                                            <strong>Canal:</strong>
+                                                        </p>                        
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <p>
+                                                            <span t-field="o.sale_order.team_id.name"/>				                                
+                                                        </p>                        
+                                                    </div>
+                                                </t>                                                     
+                                            </div>                                                                
+                                            <div class="row">
+                                                <t t-if="o.sale_order">                                               
+                                                    <div class="col-xs-2">
+                                                        <p class="text-right">
+                                                            <strong>Folio de venta:</strong>
+                                                        </p>                        
+                                                    </div>
+                                                    <div class="col-xs-3">
+                                                        <p> 
+                                                            <span t-esc="o.sale_order.name"/>				                                                            
                                                         </p>                        
                                                     </div>
                                                 </t>
@@ -226,45 +266,7 @@
                                                             <span t-esc="o.sale_order.purchase_string"/>				                                                            
                                                         </p>                        
                                                     </div>
-                                                </t>
-                                            </div>
-                                            <div class="row">
-                                            	<t t-if="o.sale_order">                                               
-                                                    <div class="col-xs-2">
-                                                        <p class="text-right">
-                                                            <strong>Folio de venta:</strong>
-                                                        </p>                        
-                                                    </div>
-                                                    <div class="col-xs-2">
-                                                        <p> 
-                                                            <span t-esc="o.sale_order.name"/>				                                                            
-                                                        </p>                        
-                                                    </div>
-                                                </t>
-                                                <t t-if="o.sale_order.division">
-                                                    <div class="col-xs-1">
-                                                        <p class="text-right">
-                                                            <strong>División:</strong>
-                                                        </p>                        
-                                                    </div>
-                                                    <div class="col-xs-3">
-                                                        <p>
-                                                            <span t-field="o.sale_order.division.name"/>				                                                                
-                                                        </p>                        
-                                                    </div>
-                                                </t>
-                                                <t t-if="o.sale_order.team_id">
-                                                    <div class="col-xs-1">
-                                                        <p class="text-right">
-                                                            <strong>Canal:</strong>
-                                                        </p>                        
-                                                    </div>
-                                                    <div class="col-xs-3">
-                                                        <p>
-                                                            <span t-field="o.sale_order.team_id.name"/>				                                
-                                                        </p>                        
-                                                    </div>
-                                                </t>                                                     
+                                                </t>                                    
                                             </div>
                                         </td>                            
                                     </tr>                        
