@@ -196,7 +196,7 @@
                             <table style="width: 100%;">
                                 <thead>
                                     <tr>                                                                    
-                                        <th class="text-left" style="width: 50%;">Datos de venta</th>                                                    
+                                        <th class="text-left" style="padding-top:3px;">Datos de venta</th>                                                    
                                     </tr>
                                 </thead>
                                 <tbody>
