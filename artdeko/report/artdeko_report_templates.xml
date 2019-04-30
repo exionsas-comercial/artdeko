@@ -504,7 +504,7 @@
                 </div>
             </div>
             <div style="padding:5px 0px 5px 0px;font-family: 'Rockwell' !important;">
-            	<table>
+            	<table style="width: 100%;">
                     <thead>
                         <tr>
                             <th class="text-left">Datos proveedor</th>                                                                    
@@ -599,7 +599,7 @@
                         </tr>                        
                     </tbody>
                 </table>
-                <table>
+                <table style="width: 100%;">
                     <thead>
                         <tr>                                                        
                             <th class="text-left" style="padding-top: 3px;">Datos de venta</th>                                                    
@@ -617,7 +617,7 @@
                                         </div>
                                         <div class="col-xs-4">
                                             <p>
-                                                <span t-field="doc.sale_order.specifier_id.initials"/>				                                
+                                                <span t-field="doc.sale_order.specifier_id.name"/>				                                
                                             </p>                        
                                         </div>
                                     </t>
