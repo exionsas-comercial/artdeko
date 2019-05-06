@@ -28,4 +28,4 @@ class Picking(models.Model):
     departure_date = fields.Datetime('Fecha salida proveedor')    
     #Costos de envío
     shipping_cost = fields.Float('Costo de envío', digits=dp.get_precision('Costo'), default=0.0)
-    shipping_cost_currency_id = fields.Many2one("res.currency", string="Moneda", required=True)
+    shipping_cost_currency_id = fields.Many2one("res.currency", string="Moneda")
