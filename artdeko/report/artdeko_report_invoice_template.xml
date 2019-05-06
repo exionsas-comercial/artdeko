@@ -24,8 +24,8 @@
                             </div>                    
                         </div>                        
                         <div class="col-xs-4">                            
-                            <h4>
-                                <span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">Factura </span>
+                            <p style="text-decoration: underline;font-weight: bold;font-size:20px;">
+                                <span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">Factura No. </span>
                                 <span t-if="o.type == 'out_invoice' and o.state == 'draft'">Borrador - factura </span>
                                 <span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Factura cancelada </span>
                                 <span t-if="o.type == 'out_refund'">Nota crédito NC</span>
@@ -35,7 +35,7 @@
                                 <span t-if="o.currency_id.name == 'USD'">D</span>
                                 <span t-if="o.currency_id.name == 'EUR'">E</span>
                                 <span t-field="o.number"/>
-                            </h4>
+                            </p>
                             <table>                                
                                 <tbody>
                                     <tr>
@@ -82,124 +82,200 @@
                                     <tr>
                                         <td class="text-center" name="fecha_timbrado">                                            
                                         </td>                                        
-                                    </tr>
-                                    <t t-if="o.origin"> 
-                                        <tr>
-                                            <td class="text-center" style="background-color:rgb(209,209,209);border-width:0px !important;">
-                                                <strong>Documento origen:</strong>
-                                            </td>                                        
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <span t-field="o.origin"/>                                            
-                                            </td>                                        
-                                        </tr>
-                                    </t>
+                                    </tr>                                    
                                 </tbody>
                             </table>
                         </div>
                         <div class="col-xs-1">                            
                         </div>
-                    </div>                               
-                    <div class="row" style="padding:30px 10px 30px 10px;font-family: 'Rockwell' !important;">
-                        <div class="col-xs-1">                            
-                        </div>
-                        <div class="col-xs-10" name="invoice_address" style="padding:5px; border:1px solid black !important;">    
-                            <div class="row">
-                                <div class="col-xs-2">
-                                    <p>
-                                        <strong>Cliente:</strong>
-                                    </p>                        
-                                </div>
-                                <div class="col-xs-10">
-                                    <p>
-                                        <t t-if="o.partner_id.parent_id.name">
-                                            <span t-field="o.partner_id.parent_id.name"/>
-                                        </t>
-                                        <t t-else="">
-                                            <span t-field="o.partner_id"/>
-                                        </t>                                        
-                                    </p>                        
-                                </div>                                                     
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-2">
-                                    <p>
-                                        <strong><t t-esc="o.partner_id.country_id.vat_label or 'RFC'"/>:</strong>
-                                    </p>                        
-                                </div>
-                                <div class="col-xs-10">
-                                    <p>
-                                        <t t-if="o.partner_id.vat">
-                                            <span t-field="o.partner_id.vat"/>
-                                        </t>
-                                    </p>                        
-                                </div>                                                     
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-2">
-                                    <p>
-                                        <strong>Domicilio:</strong>
-                                    </p>                        
-                                </div>
-                                <div class="col-xs-10">
-                                    <p>                           
-                                        <t t-if="o.partner_id.street_name">
-                                           <span t-esc="o.partner_id.street_name"/> 
-                                        </t>
-                                        <t t-if="o.partner_id.street2">
-                                            <span t-esc="o.partner_id.street2"/> - 
-                                        </t>                        
-                                        <t t-if="o.partner_id.street_number2">
-                                            <span t-esc="o.partner_id.street_number2"/> 
-                                        </t>
-                                        <t t-if="o.partner_id.l10n_mx_edi_colony">
-                                            , <span t-esc="o.partner_id.l10n_mx_edi_colony"/>
-                                        </t>
-                                        <t t-if="o.partner_id.city">
-                                            , <span t-esc="o.partner_id.city"/>
-                                        </t>
-                                        <t t-if="o.partner_id.state_id.name">
-                                            , <span t-esc="o.partner_id.state_id.name"/>
-                                        </t>
-                                        <t t-if="o.partner_id.country_id.name">
-                                            , <span t-esc="o.partner_id.country_id.name"/>
-                                        </t>                            
-                                    </p>                        
-                                </div>                                                                            
-                            </div>                    
-                            <div class="row">                                               
-                                <div class="col-xs-2">
-                                    <p>
-                                        <strong>CP:</strong>
-                                    </p>                        
-                                </div>
-                                <div class="col-xs-10">
-                                    <p>                
-                                        <t t-if="o.partner_id.zip">
-                                            <span t-esc="o.partner_id.zip"/>
-                                        </t>                            
-                                    </p>                        
-                                </div>                                    
-                            </div>
-                            <div class="row" >
-                                <div class="col-xs-2">
-                                    <p>
-                                        <strong>Teléfono:</strong>
-                                    </p>                        
-                                </div>
-                                <div class="col-xs-10">
-                                    <p>                 
-                                        <t t-if="o.partner_id.phone">
-                                            <span t-esc="o.partner_id.phone"/>
-                                        </t>                            
-                                    </p>                        
-                                </div>                                                
-                            </div>
-                        </div>
-                        <div class="col-xs-1">                            
-                        </div>
                     </div>
+                    <div class="row" style="padding:5px 0px 8px 0px;font-family: 'Rockwell' !important;">
+                        <div class="col-xs-1">                            
+                        </div>
+                        <div class="col-xs-10">
+                            <table style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th class="text-left">Datos facturación</th>                                                                               
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding:5px; border:1px solid black !important;">
+                                            <div class="row">
+                                                <div class="col-xs-2">
+                                                    <p class="text-right">
+                                                        <strong>Cliente:</strong>
+                                                    </p>                        
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <p>
+                                                        <t t-if="o.partner_id.parent_id.name">
+                                                            <span t-field="o.partner_id.parent_id.name"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span t-field="o.partner_id"/>
+                                                        </t>                                        
+                                                    </p>                        
+                                                </div>
+                                                <div class="col-xs-2">
+                                                    <p class="text-right">
+                                                        <strong><t t-esc="o.partner_id.country_id.vat_label or 'RFC'"/>:</strong>
+                                                    </p>                        
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <p>
+                                                        <t t-if="o.partner_id.vat">
+                                                            <span t-field="o.partner_id.vat"/>
+                                                        </t>
+                                                    </p>
+                                                </div>                                                     
+                                            </div>                                            
+                                            <div class="row">
+                                                <div class="col-xs-2">
+                                                    <p class="text-right">
+                                                        <strong>Domicilio:</strong>
+                                                    </p>                        
+                                                </div>
+                                                <div class="col-xs-10">
+                                                    <p>                           
+                                                        <t t-if="o.partner_id.street_name">
+                                                           <span t-esc="o.partner_id.street_name"/> 
+                                                        </t>
+                                                        <t t-if="o.partner_id.street2">
+                                                            <span t-esc="o.partner_id.street2"/> - 
+                                                        </t>                        
+                                                        <t t-if="o.partner_id.street_number2">
+                                                            <span t-esc="o.partner_id.street_number2"/> 
+                                                        </t>
+                                                        <t t-if="o.partner_id.l10n_mx_edi_colony">
+                                                            , <span t-esc="o.partner_id.l10n_mx_edi_colony"/>
+                                                        </t>
+                                                        <t t-if="o.partner_id.city">
+                                                            , <span t-esc="o.partner_id.city"/>
+                                                        </t>
+                                                        <t t-if="o.partner_id.state_id.name">
+                                                            , <span t-esc="o.partner_id.state_id.name"/>
+                                                        </t>
+                                                        <t t-if="o.partner_id.country_id.name">
+                                                            , <span t-esc="o.partner_id.country_id.name"/>
+                                                        </t>                            
+                                                    </p>                      
+                                                </div>                                                                            
+                                            </div>                    
+                                            <div class="row">                                               
+                                                <div class="col-xs-2">
+                                                    <p class="text-right">
+                                                        <strong>CP:</strong>
+                                                    </p>                        
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <p>                
+                                                        <t t-if="o.partner_id.zip">
+                                                            <span t-esc="o.partner_id.zip"/>
+                                                        </t>                            
+                                                    </p>                        
+                                                </div>
+                                                <div class="col-xs-2">
+                                                    <p class="text-right">
+                                                        <strong>Teléfono:</strong>
+                                                    </p>                        
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <p>                 
+                                                        <t t-if="o.partner_id.phone">
+                                                            <span t-esc="o.partner_id.phone"/>
+                                                        </t>                            
+                                                    </p>
+                                                </div>                                    
+                                            </div>                                            
+                                        </td>                                                                    
+                                    </tr>                        
+                                </tbody>
+                            </table>
+                            <table style="width: 100%;">
+                                <thead>
+                                    <tr>                                                                    
+                                        <th class="text-left" style="padding-top:3px;">Datos de venta</th>                                                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding:5px; border:1px solid black !important;">
+                                            <div class="row">
+                                                <t t-if="o.sale_order.specifier_id">
+                                                    <div class="col-xs-2">
+                                                        <p class="text-right">
+                                                            <strong>Especificador:</strong>
+                                                        </p>                        
+                                                    </div>
+                                                    <div class="col-xs-10">
+                                                        <p>
+                                                            <span t-field="o.sale_order.specifier_id.name"/>				                                
+                                                        </p>                        
+                                                    </div>
+                                                </t>
+                                            </div>
+                                            <div class="row">
+                                                <t t-if="o.sale_order.division">
+                                                    <div class="col-xs-2">
+                                                        <p class="text-right">
+                                                            <strong>División:</strong>
+                                                        </p>                        
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <p>
+                                                            <span t-field="o.sale_order.division.name"/>				                                                                
+                                                        </p>                        
+                                                    </div>
+                                                </t>
+                                                <t t-if="o.sale_order.team_id">
+                                                    <div class="col-xs-2">
+                                                        <p class="text-right">
+                                                            <strong>Canal:</strong>
+                                                        </p>                        
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <p>
+                                                            <span t-field="o.sale_order.team_id.name"/>				                                
+                                                        </p>                        
+                                                    </div>
+                                                </t>                                                     
+                                            </div>                                                                
+                                            <div class="row">
+                                                <t t-if="o.sale_order">                                               
+                                                    <div class="col-xs-2">
+                                                        <p class="text-right">
+                                                            <strong>Folio de venta:</strong>
+                                                        </p>                        
+                                                    </div>
+                                                    <div class="col-xs-3">
+                                                        <p> 
+                                                            <span t-esc="o.sale_order.name"/>				                                                            
+                                                        </p>                        
+                                                    </div>
+                                                </t>
+                                                <t t-if="o.sale_order">                                               
+                                                    <div class="col-xs-3">
+                                                        <p class="text-right">
+                                                            <strong>Ordenes de compra:</strong>
+                                                        </p>                        
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <p> 
+                                                            <span t-esc="o.sale_order.purchase_string"/>				                                                            
+                                                        </p>                        
+                                                    </div>
+                                                </t>                                    
+                                            </div>
+                                        </td>                            
+                                    </tr>                        
+                                </tbody>
+                            </table>
+                        </div>    
+                        <div class="col-xs-1">                            
+                        </div>                
+                    </div> 
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
                     <div class="row" style="font-family: 'Rockwell' !important;">

@@ -22,7 +22,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'product', 'sale','purchase','crm','account'],
+    'depends': ['base', 
+                'base_setup', 
+                'product', 
+                'sale',
+                'purchase',
+                'crm',
+                'account',
+                'contacts'],
 
     # always loaded
     'data': [
@@ -30,6 +37,7 @@
         'views/views.xml',
         'views/templates.xml',
         'views/artdeko_views.xml',
+        'views/stock_picking_views.xml',
         'report/artdeko_report.xml',
         'report/artdeko_report_templates.xml',
         'report/artdeko_report_layouts.xml',
