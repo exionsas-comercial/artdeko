@@ -18,6 +18,7 @@
 	                	<field name="guide_number"/>
 	                	<field name="departure_date"/>
 	                	<field name="shipping_cost"/>
+	                	<field name="shipping_cost_currency_id"/>
 	                	<field name="date_done" string="Fecha real de recepción" readonly="1"/>                     
 	                </group>
                 </xpath>               
@@ -37,6 +38,7 @@
                     <field name="scheduled_date"/>
                     <field name="date_done" string="Fecha real de recepción" readonly="1"/>
                     <field name="shipping_cost"/>
+                    <field name="shipping_cost_currency_id"/>
                     <field name="state"/>
                     <field name="priority" invisible="1"/>
                     <field name="picking_type_id" invisible="1"/>                    
