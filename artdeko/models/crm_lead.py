@@ -33,4 +33,8 @@ class Lead(models.Model):
         }        
         return quotation_request
     #Hacer obligatorios los campos de cliente, ingreso estimado, probabilidad, fecha de cierre y etiquetas
-    
+    partner_id = fields.Many2one(required=True)
+    planned_revenue = fields.Float(required=True)
+    probability = fields.Float(required=True)
+    date_deadline = fields.Date(required=True)
+    tags_ids = fields.Many2many(required=True)
