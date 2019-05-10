@@ -37,4 +37,4 @@ class Lead(models.Model):
     planned_revenue = fields.Float(required=True)
     probability = fields.Float(required=True)
     date_deadline = fields.Date(required=True)
-    tags_ids = fields.Many2many(required=True)
+    #tags_ids = fields.Many2many(required=True)
