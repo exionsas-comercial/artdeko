@@ -92,4 +92,14 @@ class PurchaseOrderLine(models.Model):
     # Adicionar campo para descuentos
     # discount
     discount = fields.Float(string='Descuento (%)', digits=dp.get_precision('Discount'), default=0.0)
-    amount_discount_line = fields.Monetary(compute='_compute_amount', string='Importe descuento', store=True)        
+    amount_discount_line = fields.Monetary(compute='_compute_amount', string='Importe descuento', store=True)
+
+class ProcurementRule(models.Model):
+    _inherit = 'procurement.rule'    
+    # Incluir SO en el dominio para seleccionar la PO
+    @api.model    
+    def _make_po_get_domain(self, values, partner):
+        domain = super(ProcurementRule, self)._make_po_get_domain(values, partner)
+        #if group:
+         #   domain += (('group_id', '=', group.id),)
+        return domain            
