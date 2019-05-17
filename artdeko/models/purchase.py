@@ -100,5 +100,5 @@ class ProcurementRule(models.Model):
     @api.model    
     def _make_po_get_domain(self, values, partner):
         domain = super(ProcurementRule, self)._make_po_get_domain(values, partner)        
-        domain += (('sale_order', '=', '1'),)
+        domain += (('sale_order', '=', values['sale_order']),)
         return domain            
