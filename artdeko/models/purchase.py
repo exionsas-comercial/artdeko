@@ -99,7 +99,6 @@ class ProcurementRule(models.Model):
     # Incluir SO en el dominio para seleccionar la PO
     @api.model    
     def _make_po_get_domain(self, values, partner):
-        domain = super(ProcurementRule, self)._make_po_get_domain(values, partner)
-        #if group:
-         #   domain += (('group_id', '=', group.id),)
+        domain = super(ProcurementRule, self)._make_po_get_domain(values, partner)        
+        domain += (('sale_order', '=', values['sale_order'].id),)
         return domain            
