@@ -30,7 +30,8 @@
                 'crm',
                 'account',
                 'contacts'
-                'stock'],
+                'stock',
+                'contactsstock'],
 
     # always loaded
     'data': [
