@@ -2,7 +2,6 @@
 
 from . import models
 from . import sale
-from . import sale_order
 from . import stock_picking
 from . import purchase
 from . import crm_lead
