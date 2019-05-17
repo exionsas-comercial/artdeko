@@ -189,6 +189,7 @@ class SaleOrderLine(models.Model):
         """
         values = super(SaleOrderLine, self)._prepare_procurement_values(group_id)
         self.ensure_one()
+        print self.order_id
         values.update({
             'sale_order': self.order_id,
         })
