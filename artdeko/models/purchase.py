@@ -100,7 +100,7 @@ class ProcurementRule(models.Model):
     def _prepare_purchase_order(self, product_id, product_qty, product_uom, origin, values, partner):
         order_values = super(ProcurementRule, self)._prepare_purchase_order(product_id, product_qty, product_uom, origin, values, partner)
         order_values.update({
-            'sale_order': values['sale_order'].id,            
+            'sale_order': values['sale_order'],            
         })
         return order_values        
     # Incluir SO en el dominio para seleccionar la PO
