@@ -179,14 +179,9 @@ class SaleOrder(models.Model):
     specifier_id = fields.Many2one('res.users', string='Especificador', index=True, null=True, domain=[('specifier_ok', '=', True)], context={'show_initials': True})
 
 class SaleOrderLine(models.Model):
-    _inherit = 'sale.order.line'
-    
+    _inherit = 'sale.order.line'    
     @api.multi
-    def _prepare_procurement_values(self, group_id=False):
-        """ Prepare specific key for moves or other components that will be created from a procurement rule
-        comming from a sale order line. This method could be override in order to add other custom key that could
-        be used in move/po creation.
-        """
+    def _prepare_procurement_values(self, group_id=False):        
         values = super(SaleOrderLine, self)._prepare_procurement_values(group_id)
         self.ensure_one()
         values.update({
