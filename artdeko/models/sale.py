@@ -190,6 +190,6 @@ class SaleOrderLine(models.Model):
         values = super(SaleOrderLine, self)._prepare_procurement_values(group_id)
         self.ensure_one()
         values.update({
-            'sale_order': self.order_id,
+            'origin': self.order_id.name,
         })
         return values
