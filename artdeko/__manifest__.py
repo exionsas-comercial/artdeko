@@ -29,8 +29,7 @@
                 'purchase',
                 'crm',
                 'account',
-                'contacts',
-                'stock'],
+                'contacts'],
 
     # always loaded
     'data': [

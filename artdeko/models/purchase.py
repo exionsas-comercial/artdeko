@@ -70,7 +70,7 @@ class PurchaseOrder(models.Model):
 
                 line.price_unit = price_unit
     #Conectar purchase order con sale order
-    sale_order = fields.Many2one('sale.order', 'Venta')    
+    sale_order = fields.Many2one('sale.order', 'Venta')
     
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'    
@@ -92,22 +92,4 @@ class PurchaseOrderLine(models.Model):
     # Adicionar campo para descuentos
     # discount
     discount = fields.Float(string='Descuento (%)', digits=dp.get_precision('Discount'), default=0.0)
-    amount_discount_line = fields.Monetary(compute='_compute_amount', string='Importe descuento', store=True)
-
-class ProcurementRule(models.Model):
-    _inherit = 'procurement.rule'
-    #Asignar sale_order de forma automática
-    def _prepare_purchase_order(self, product_id, product_qty, product_uom, origin, values, partner):
-        order_values = super(ProcurementRule, self)._prepare_purchase_order(product_id, product_qty, product_uom, origin, values, partner)
-        order_values.update({
-            'sale_order': values.get('sale_order', False) and values['sale_order'].id,            
-        })
-        return order_values        
-    # Incluir SO en el dominio para seleccionar la PO
-    @api.model    
-    def _make_po_get_domain(self, values, partner):
-        domain = super(ProcurementRule, self)._make_po_get_domain(values, partner)        
-        #domain += (('sale_order', '=', values['sale_order'].id),)
-        domain += (('origin', '=', values['origin']),)
-        #domain += (('group_id', '=', values['group_id'].id),)
-        return domain            
+    amount_discount_line = fields.Monetary(compute='_compute_amount', string='Importe descuento', store=True)        
