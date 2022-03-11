@@ -17,7 +17,4 @@ class Partner(models.Model):
                 name = "%s <%s>" % (name, initials)            
             result.append((partner_id, name))
         return result
-    #Hacer obligatorios los campos de email, teléfono y ciudad para los clientes
-    phone = fields.Char(required=True)
-    email = fields.Char(required=True)
-    city = fields.Char(required=True)
+    
