@@ -3,7 +3,7 @@ from odoo import api, fields, models
 class Partner(models.Model):
     _inherit = 'res.partner'
     #Extend name_get to have the "initials" field in the name
-    @api.multi
+    @api.model
     def name_get(self):
         result = []
         res = super(Partner, self).name_get()        
