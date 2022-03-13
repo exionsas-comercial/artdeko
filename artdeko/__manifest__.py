@@ -7,6 +7,9 @@
         'base_setup',
         'contacts'
     ],
+    'data': [
+        'security/ir.model.access.csv',
+    ],
     'css': ['static/src/css/crm.css'],
     'installable': True,
     'application': True,
