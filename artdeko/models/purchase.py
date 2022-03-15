@@ -6,7 +6,7 @@ class PurchaseOrder(models.Model):
     # Adicionar campo para descuentos
     amount_discounted = fields.Monetary(string='Descuentos', store=True, readonly=True, compute='_amount_all')
     #Conectar purchase order con sale order
-    sale_order_id = fields.Many2one('sale.order', string='Venta', default=None)
+    sale_order = fields.Many2one('sale.order', string='Venta', default=None)
 
     # Incluir descuentos en los cálculos
     @api.model

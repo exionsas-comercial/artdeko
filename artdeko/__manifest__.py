@@ -7,7 +7,8 @@
         'base_setup',
         'contacts',
         'purchase',
-        'sale'
+        'sale',
+        'product'
     ],
     'css': ['static/src/css/crm.css'],
     'installable': True,
