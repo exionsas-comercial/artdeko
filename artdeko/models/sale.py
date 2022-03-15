@@ -21,19 +21,21 @@ class SaleOrder(models.Model):
         '''
         Calculate the quantity of the purchases for each sale order and update the data base.
         '''
-        purchases_names = ""
-        purchases = self.env['purchase.order'].sudo().search([('sale_order', '=', self.id)])
-        self.purchase_count = len(purchases)
-        if self.purchase_count == 1:
-            purchases_names = self.env['purchase.order'].sudo().search([('sale_order', '=', self.id)], limit=1).name_get()
-        elif self.purchase_count > 1:                
-            for purchase in purchases:
-                purchases_names = purchases_names + purchase.name_get() + ", "
-        self.purchase_string = purchases_names
+        for record in self:    
+            purchases_names = ""
+            purchases = self.env['purchase.order'].sudo().search([('sale_order', '=', record.id)])
+            record.purchase_count = len(purchases)
+            if record.purchase_count == 1:
+                purchases_names = self.env['purchase.order'].sudo().search([('sale_order', '=', record.id)], limit=1).name_get()
+            elif record.purchase_count > 1:                
+                for purchase in purchases:
+                    purchases_names = purchases_names + purchase.name_get() + ", "
+            record.purchase_string = purchases_names
             
     def _compute_receipt_ids(self):
         '''
         Calculate the quantity of the pickings asociate with the purchases for each sale order and update the data base.
         '''
-        receipts = self.env['purchase.order'].sudo().search_read([('sale_order', '=', self.id)], ['picking_count'])
-        self.receipt_count = sum([item['picking_count'] for item in receipts])
+        for record in self:
+            receipts = self.env['purchase.order'].sudo().search_read([('sale_order', '=', record.id)], ['picking_count'])
+            record.receipt_count = sum([item['picking_count'] for item in receipts])
