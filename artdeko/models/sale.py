@@ -25,10 +25,10 @@ class SaleOrder(models.Model):
         purchases = self.env['purchase.order'].sudo().search([('sale_order', '=', self.id)])
         self.purchase_count = len(purchases)
         if self.purchase_count == 1:
-            purchases_names = self.env['purchase.order'].sudo().search([('sale_order', '=', self.id)], limit=1).name
+            purchases_names = self.env['purchase.order'].sudo().search([('sale_order', '=', self.id)], limit=1).name_get()
         elif self.purchase_count > 1:                
             for purchase in purchases:
-                purchases_names = purchases_names + purchase.name + ", "
+                purchases_names = purchases_names + purchase.name_get() + ", "
         self.purchase_string = purchases_names
             
     def _compute_receipt_ids(self):
