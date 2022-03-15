@@ -5,7 +5,9 @@
     'depends': [
         'base', 
         'base_setup',
-        'contacts'
+        'contacts',
+        'purchase',
+        'sale'
     ],
     'css': ['static/src/css/crm.css'],
     'installable': True,
