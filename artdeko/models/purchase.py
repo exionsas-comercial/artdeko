@@ -1,5 +1,4 @@
 from odoo import api, fields, models
-from odoo.addons import decimal_precision as dp
 
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
@@ -23,7 +22,7 @@ class PurchaseOrder(models.Model):
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'    
     # Adicionar campo para descuentos
-    discount = fields.Float(string='Descuento (%)', digits=dp.get_precision('Discount'), default=0.0)
+    discount = fields.Float(string='Descuento (%)', digits='Discount', default=0.0)
     amount_discount_line = fields.Monetary(compute='_compute_amount', string='Importe descuento', store=True)
     
     # Incluir el descuento en los cálculos
