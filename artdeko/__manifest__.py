@@ -8,7 +8,7 @@
         'contacts',
         'purchase',
         'sale',
-        'product'
+        'stock'
     ],
     'css': ['static/src/css/crm.css'],
     'installable': True,
