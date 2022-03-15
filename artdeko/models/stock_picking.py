@@ -1,11 +1,9 @@
 from email.policy import default
-from odoo import api, fields, models
-from odoo.addons import decimal_precision as dp
+from odoo import fields, models
 
 class Picking(models.Model):
     _inherit = 'stock.picking' 
     
-    @api.models
     def picking_force_cancel(self):
         """
         Force the stock picking cancelation
@@ -21,6 +19,5 @@ class Picking(models.Model):
     #Fecha de salida del pedido desde el proveedor
     departure_date = fields.Datetime('Fecha salida proveedor')    
     #Costos de envío
-    shipping_cost = fields.Float('Costo de envío', digits=dp.get_precision('Costo'), default=0.0)
+    shipping_cost = fields.Float('Costo de envío', digits='Product Price', default=0.0)
     shipping_cost_currency_id = fields.Many2one("res.currency", string="Moneda", default=None)
-    
