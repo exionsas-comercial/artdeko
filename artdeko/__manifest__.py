@@ -17,5 +17,6 @@
     'license': 'Other proprietary',
     'data': [
         'security/ir.model.access.csv',
+        'views/artdeko_views.xml'
     ]
 }
