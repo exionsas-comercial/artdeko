@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="purchase_order_form_inherit_artdeko" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherit.artdeko</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/div[@name='date_planned_div']" position="after">
+                    <field name="sale_order"/>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[1]/field[@name='order_line']/tree[1]/field[@name='price_unit']" position="after">
+                  <field name="discount"/>
+                </xpath>
+                <field name="notes" position="attributes">
+                    <attribute name="placeholder">Observaciones</attribute>
+                </field>
+                <xpath expr="//button[@name='print_quotation'][1]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//button[@name='print_quotation'][2]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>                
+            </field>
+        </record>
+        <!-- <record id="purchase_order_tree" model="ir.ui.view">
+            <field name="name">purchase.order.tree.inherited.artdeko</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='origin']" position="before">
+                    <field name="sale_order" string="Venta"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="sale_purchase_orders_tree">
+            <field name="name">Compras</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" eval="False"/> Force empty 
+            <field name="view_id" ref="purchase.purchase_order_tree"/>        
+        </record>        
+        <record id="view_order_form" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.artdeko</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/header[1]/button[3]" position="after">
+                    <button name="prepare_purchase_lines_from_sale_order" type="object"
+                        string="Crear orden de compra" class="btn-primary" 
+                        attrs="{'invisible': [('state', 'not in', ['sale'])]}"
+                        groups="purchase.group_purchase_manager"/>                    
+                    <button name="action_new_purchase_request" type="object"
+                        string="Solicitar compra" class="btn-primary"  
+                        attrs="{'invisible': [('state', 'not in', ['sale'])]}"/>
+                    <button name="action_invoice_request" type="object"
+                        string="Solicitar facturación" class="btn-primary" 
+                        attrs="{'invisible': [('state', 'not in', ['sale'])]}"/>
+                </xpath>
+                <xpath expr="//button[@name='action_view_invoice']" position="after">                    
+                    <button type="object"
+                        name="action_view_purchases"
+                        class="oe_stat_button"
+                        icon="fa-credit-card"
+                        attrs="{'invisible': [('purchase_count', '=', 0)]}" groups="base.group_user">
+                        <field name="purchase_count" widget="statinfo" string="Compras"/>
+                    </button>
+                    <button type="object"
+                        name="action_view_receipt"
+                        class="oe_stat_button"
+                        icon="fa-thumbs-o-up"
+                        attrs="{'invisible': [('receipt_count', '=', 0)]}" groups="base.group_user">
+                        <field name="receipt_count" widget="statinfo" string="Recepciones"/>
+                    </button>              
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='partner_shipping_id']" position="after">
+                    <field name="division"/>
+                    <field name="team_id"/>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/field[@name='payment_term_id']" position="after">
+                    <field name="specifier_id"/>
+                </xpath>                       
+                <field name="note" position="attributes">
+                    <attribute name="placeholder">Observaciones</attribute>
+                </field>
+                <xpath expr="//button[@name='print_quotation'][1]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//button[@name='print_quotation'][2]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>                
+            </field>
+        </record>        
+        <record id="crm_case_form_view_oppor" model="ir.ui.view">
+            <field name="name">crm.lead.oppor.inherited.artdeko</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_set_won_rainbowman']" position="before">
+                    <button name="action_new_quotation_request" type="object"
+                        string="Solicitar cotización" class="btn-primary"/>                    
+                </xpath>              
+            </field>
+        </record> 
+        <record id="invoice_form" model="ir.ui.view">
+            <field name="name">account.invoice.form.inherited.artdeko</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='invoice_print'][1]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//button[@name='invoice_print'][2]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                    <field name="ref_partner_id" string="Cliente referencia"/>
+                    <field name="sale_order" string="Folio de venta"/>
+                </xpath>
+                <field name="comment" position="attributes">
+                    <attribute name="placeholder">Observaciones</attribute>
+                </field>  
+            </field>
+        </record> 
+        <record id="invoice_tree" model="ir.ui.view">
+            <field name="name">account.invoice.tree.inherited.artdeko</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="ref_partner_id" string="Cliente referencia"/>
+                </xpath>
+            </field>
+        </record>        
+        <record id="view_users_form" model="ir.ui.view">
+            <field name="name">res.users.form.inherit.artdeko</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">         
+                <xpath expr="//field[@name='login']" position="after">
+                    <label for="initials" string="Iniciales"/>
+                    <h2><field name="initials"/></h2>
+                    <label for="specifier_ok" string="Es especificador"/>
+                    <field name="specifier_ok"  type="checkbox"  string="Especificador"/>                                  
+                </xpath>                
+            </field>
+        </record>         -->
+    </data>
+</odoo>
