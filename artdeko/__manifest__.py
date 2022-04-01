@@ -18,7 +18,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/artdeko_views.xml',
-        'report/artdeko_paper_format.xml',
+        'report/artdeko_paper_formats.xml',
         'report/artdeko_layouts.xml'
         'report/artdeko_sale_templates.xml',
         'report/artdeko_reports.xml',
