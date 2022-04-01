@@ -10,12 +10,8 @@
         'sale',
         'stock'
     ],
-    'css': ['static/src/css/crm.css'],
     'installable': True,
     'application': True,
     'auto_install': False,
-    'license': 'Other proprietary',
-    'data': [
-        'security/ir.model.access.csv',
-    ]
+    'license': 'Other proprietary'
 }
