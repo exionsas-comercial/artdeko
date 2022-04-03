@@ -22,7 +22,7 @@
         </div>
 
         <div class="article o_report_layout_standard">
-            <t t-raw="0" />
+            <t t-out="0" />
         </div>
         
         <div class="footer">
