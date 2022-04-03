@@ -184,7 +184,7 @@
                 </t>
             </div>    
             
-
+            <!--
             <div class="clearfix">
                 <div class="row" name="total" style="padding-right:30px;">
                     <div class="col-xs-7">                        
@@ -234,6 +234,8 @@
                     </div>
                 </div>
             </div>
+            -->
+            
             <t t-if="doc.note">
                 <div class="row" name="total" style="padding:15px 0px 0px 0px; font-family: 'Rockwell' !important;">
                     <div class="col-xs-1">                        
