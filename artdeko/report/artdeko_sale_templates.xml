@@ -15,9 +15,9 @@
                     </p>                    
                     <p style="font-size:16px;">Fecha de cotización: <span t-field="doc.date_order" t-options='{"widget": "date"}'/>
                     </p>
-                    <!--<t t-if="doc.division">
+                    <t t-if="doc.division">
                         <p style="font-size:16px;">División: <span t-field="doc.division.name"/></p>
-                    </t>-->
+                    </t>
                     <t t-if="doc.team_id">
                         <p style="font-size:16px;">Canal: <span t-field="doc.team_id.name"/></p>
                     </t>
