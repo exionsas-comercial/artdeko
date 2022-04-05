@@ -6,9 +6,9 @@
         <div class="page">
             <div class="oe_structure"/>
             <div class="row" style="font-family: 'Rockwell' !important;">
-                <div class="col-xs-1">                        
+                <div class="col-1">                        
                 </div>
-                <div class="col-xs-10 text-right">
+                <div class="col-10 text-right">
                     <p style="text-decoration: underline;font-weight: bold;font-size:20px;">
                         <span>Cotización No. </span>                
                         <span t-field="doc.name"/>
@@ -25,11 +25,11 @@
                         <p style="font-size:16px;">Especificador: <span t-field="doc.specifier_id.name"/></p>
                     </t>-->    
                 </div>
-                <div class="col-xs-1">                        
+                <div class="col-1">                        
                 </div>                              
             </div>
             <div class="row" style="padding:10px;font-family: 'Rockwell' !important;">                
-                <div class="col-xs-11 col-xs-offset-1">
+                <div class="col-11 col-offset-1">
                     <div t-field="doc.partner_id"
                         t-options='{"widget": "contact", "fields": ["name", "parent_id", "email", "phone"], "no_marker": True}' />                                       
                 </div>
@@ -71,6 +71,37 @@
                                         <span t-field="line.product_id.name"/><br></br>
                                         <span t-field="line.name"/>
                                     </td>
+                                    <td class="text-right" style="border-top:1px solid black !important;">
+                                        <span t-field="line.product_uom_qty"/>
+                                        <span t-field="line.product_uom"/>
+                                    </td>
+                                    <td align="center" style="border-top:1px solid black !important;">                
+                                        <span t-field="line.product_id.image_medium" t-field-options='{"widget": "image"}'/>
+                                    </td>
+                                    <td class="text-right" style="border-top:1px solid black !important;">
+                                        <span t-field="line.price_unit"/>
+                                    </td>
+                                    <td t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line" style="border-top:1px solid black !important;">
+                                        <span t-field="line.discount"/>
+                                    </td>
+                                    <td t-if="display_discount" class="text-right" style="border-top:1px solid black !important;">
+                                        <t t-esc="line.discount * line.price_unit * line.product_uom_qty/100" 
+                                            t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                    </td>                                    
+                                    <td class="text-right" groups="sale.group_show_price_subtotal" style="border-top:1px solid black !important;">
+                                        <span t-field="line.price_subtotal"
+                                            t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                    </td>
+                                    <td class="text-right" groups="sale.group_show_price_total" style="border-top:1px solid black !important;">
+                                        <span t-field="line.price_total"
+                                            t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                    </td>
+
+                                    <!--
+                                    <td style="border-top:1px solid black !important;">
+                                        <span t-field="line.product_id.name"/><br></br>
+                                        <span t-field="line.name"/>
+                                    </td>
                                     <td name="td_name"><span t-field="line.name"/></td>
                                     <td name="td_quantity" class="text-right">
                                         <span t-field="line.product_uom_qty"/>
@@ -88,7 +119,7 @@
                                     <td name="td_subtotal" class="text-right o_price_total">
                                         <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
                                         <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
-                                    </td>
+                                    </td>-->
                                 </t>
                                 <t t-if="line.display_type == 'line_section'">
                                     <td name="td_section_line" colspan="99">
@@ -187,9 +218,9 @@
             <!--
             <div class="clearfix">
                 <div class="row" name="total" style="padding-right:30px;">
-                    <div class="col-xs-7">                        
+                    <div class="col-7">                        
                     </div>
-                    <div class="col-xs-5" style="padding-right:30px;font-family: 'Rockwell' !important;">
+                    <div class="col-5" style="padding-right:30px;font-family: 'Rockwell' !important;">
                         <table class="table table-condensed" style="min-width: 200px;max-width: 350px;">
                             <tr>
                                 <td>
@@ -238,9 +269,9 @@
             
             <t t-if="doc.note">
                 <div class="row" name="total" style="padding:15px 0px 0px 0px; font-family: 'Rockwell' !important;">
-                    <div class="col-xs-1">                        
+                    <div class="col-1">                        
                     </div>
-                    <div class="col-xs-10">
+                    <div class="col-10">
                         <p>
                             <span style="font-size:16px;text-decoration: underline;">OBSERVACIONES:</span>
                         </p> 
@@ -248,16 +279,16 @@
                             <span style="font-size:16px;" t-esc="doc.note"/>
                         </p> 
                     </div>
-                    <div class="col-xs-1">                        
+                    <div class="col-1">                        
                     </div>
                 </div>
             </t>
                        
             <p style="page-break-before:always;"> </p>
             <div class="row" style="font-family: 'Rockwell' !important; font-size:12px !important;">
-                <div class="col-xs-1">                        
+                <div class="col-1">                        
                 </div>
-                <div class="col-xs-10">
+                <div class="col-10">
                     <p style="text-decoration: underline;text-align: center;">CONDICIONES COMERCIALES</p>
                     <p><span style="text-decoration: underline;">Vigencia de la cotización:</span> <span t-field="doc.validity_date"/>
                     </p>
@@ -271,13 +302,13 @@
                         <li><span>Una vez pagado el anticipo el tiempo de entrega varía según existencias.</span></li>
                     </ul>
                 </div>
-                <div class="col-xs-1">                        
+                <div class="col-1">                        
                 </div>                              
             </div>
             <div class="row" style="font-family: 'Rockwell' !important; font-size:12px !important;">
-                <div class="col-xs-1">                        
+                <div class="col-1">                        
                 </div>
-                <div class="col-xs-10">
+                <div class="col-10">
                     <p><span  style="text-decoration: underline;">Tipo de moneda de la cotización:</span> <span t-field="doc.pricelist_id.currency_id.currency_unit_label"/> &#40;<span t-field="doc.pricelist_id.currency_id.name"/>&#41;</p>
                     <p style="text-decoration: underline;">Facturación</p>
                     <ul>
@@ -289,13 +320,13 @@
                         <li><span>Una vez pagada la factura ya sea parcial o total no podrá cancelarse.</span></li>
                     </ul>
                 </div>
-                <div class="col-xs-1">                        
+                <div class="col-1">                        
                 </div>                              
             </div>
             <div class="row" style="font-family: 'Rockwell' !important; font-size:12px !important;">
-                <div class="col-xs-1">                        
+                <div class="col-1">                        
                 </div>
-                <div class="col-xs-10">
+                <div class="col-10">
                     <p style="text-decoration: underline;"><span  style="text-decoration: underline;">Forma de pago:</span> <span t-field="doc.payment_term_id"/> </p>
                     <ul>
                         <li><span>Los pagos pueden hacerse con transferencia bancaria, cheque, depósito en ventanilla o cargo a tarjeta de crédito.</span></li>
@@ -304,13 +335,13 @@
                         <li><span>Agradecemos confirmar pagos realizados con copia del comprobante bancario vía correo electrónico, para acreditar el pago.</span></li>                        
                     </ul>
                 </div>
-                <div class="col-xs-1">                        
+                <div class="col-1">                        
                 </div>                              
             </div>
             <div class="row" style="font-family: 'Rockwell' !important; font-size:12px !important;">
-                <div class="col-xs-1">                        
+                <div class="col-1">                        
                 </div>
-                <div class="col-xs-10">
+                <div class="col-10">
                     <p style="text-decoration: underline;">Entrega y resguardo de mercancía</p>
                     <ul>
                         <li><span>Una vez que se confirme la llegada del producto, el cliente dispone de 7 días naturales como máximo de almacenaje sin costo.</span></li>
@@ -322,14 +353,14 @@
                     </ul>
                     <p style="text-align: center;"><strong>Atentamente,</strong><br></br><strong t-field="doc.user_id"/><br></br><strong t-esc="doc.company_id.name"/></p>                    
                 </div>
-                <div class="col-xs-1">                        
+                <div class="col-1">                        
                 </div>                              
             </div>
             <p style="page-break-before:always;"> </p>            
             <div class="row" style="font-family: 'Rockwell' !important;">
-                <div class="col-xs-2">                        
+                <div class="col-2">                        
                 </div>
-                <div class="col-xs-8">
+                <div class="col-8">
                     <p style="text-align: center;"><strong>CUENTAS BANCARIAS ARTDEKO 2022</strong><br></br></p>
                     <!-- <p style="text-align: center;"><span t-esc="doc.company_id.name"/><br></br></p>
                     <p style="text-align: center;"><span t-esc="doc.company_id.vat"/><br></br></p> -->
@@ -518,7 +549,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-xs-2">                        
+                <div class="col-2">                        
                 </div>                              
             </div>                        
         </div>
