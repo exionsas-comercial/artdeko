@@ -75,8 +75,8 @@
                                         <span t-field="line.product_uom_qty"/>
                                         <span t-field="line.product_uom"/>
                                     </td>
-                                    <td align="center" style="border-top:1px solid black !important;">                
-                                        <span t-field="line.product_id.image_1920" t-field-options='{"widget": "image"}'/>
+                                    <td align="center" style="border-top:1px solid black !important;">
+                                        <img t-att-src="data:image/*;base64,{{line.product_id.image_1920}}"/>                                                        
                                     </td>
                                     <td class="text-right" style="border-top:1px solid black !important;">
                                         <span t-field="line.price_unit"/>
