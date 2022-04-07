@@ -76,7 +76,6 @@
                                         <span t-field="line.product_uom"/>
                                     </td>
                                     <td align="center" style="border-top:1px solid black !important;">
-                                        <span t-field="line.product_id.image_128"/>
                                         <img t-att-src="line.product_id.image_128"/>                                                        
                                     </td>
                                     <td class="text-right" style="border-top:1px solid black !important;">
