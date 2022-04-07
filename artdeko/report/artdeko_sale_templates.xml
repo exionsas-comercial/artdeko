@@ -48,10 +48,12 @@
                             <th class="text-right">Cantidad</th>
                             <th class="text-center">Imagen</th>
                             <th class="text-right">Precio unidad</th>
-                            <th t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">Descuento(%)</th> 
-                            <th t-if="display_discount" class="text-right">Importe<br></br>descuento</th>                            
-                            <th class="text-right" groups="sale.group_show_price_subtotal">Subtotal</th>
-                            <th class="text-right price_tax_included" groups="sale.group_show_price_total">Total</th>
+                            <th t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">Descuento(%)</th> 
+                            <th t-if="display_discount" class="text-right">Importe<br></br>descuento</th> 
+                            <th name="th_subtotal" class="text-right">
+                                <span groups="account.group_show_line_subtotals_tax_excluded">Subtotal</span>
+                                <span groups="account.group_show_line_subtotals_tax_included">Total</span>
+                            </th>                           
                         </tr>
                     </thead>
                     <tbody class="sale_tbody">
@@ -81,45 +83,19 @@
                                     <td class="text-right" style="border-top:1px solid black !important;">
                                         <span t-field="line.price_unit"/>
                                     </td>
-                                    <td t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line" style="border-top:1px solid black !important;">
+                                    <td t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line" style="border-top:1px solid black !important;">
                                         <span t-field="line.discount"/>
                                     </td>
                                     <td t-if="display_discount" class="text-right" style="border-top:1px solid black !important;">
                                         <t t-esc="line.discount * line.price_unit * line.product_uom_qty/100" 
                                             t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-                                    </td>                                    
-                                    <td class="text-right" groups="sale.group_show_price_subtotal" style="border-top:1px solid black !important;">
-                                        <span t-field="line.price_subtotal"
-                                            t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-                                    </td>
-                                    <td class="text-right" groups="sale.group_show_price_total" style="border-top:1px solid black !important;">
-                                        <span t-field="line.price_total"
-                                            t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-                                    </td>
-
-                                    <!--
-                                    <td style="border-top:1px solid black !important;">
-                                        <span t-field="line.product_id.name"/><br></br>
-                                        <span t-field="line.name"/>
-                                    </td>
-                                    <td name="td_name"><span t-field="line.name"/></td>
-                                    <td name="td_quantity" class="text-right">
-                                        <span t-field="line.product_uom_qty"/>
-                                        <span t-field="line.product_uom"/>
-                                    </td>
-                                    <td name="td_priceunit" class="text-right">
-                                        <span t-field="line.price_unit"/>
-                                    </td>
-                                    <td t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
-                                        <span t-field="line.discount"/>
-                                    </td>
-                                    <td name="td_taxes" class="text-right">
-                                        <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_id))"/>
                                     </td>
                                     <td name="td_subtotal" class="text-right o_price_total">
-                                        <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
-                                        <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
-                                    </td>-->
+                                        <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"
+                                            t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                        <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"
+                                            t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                    </td>
                                 </t>
                                 <t t-if="line.display_type == 'line_section'">
                                     <td name="td_section_line" colspan="99">
