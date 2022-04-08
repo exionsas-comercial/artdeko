@@ -4,7 +4,7 @@ from odoo import api, models
 class Lead(models.Model):
     _inherit = 'crm.lead'
     @api.model
-    def action_new_quotation_request(self):
+    def action_new_quotation_request(self, **additional_values):
         """
         Request quotation.
         """
