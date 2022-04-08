@@ -3,7 +3,7 @@ from odoo import api, models
 
 class Lead(models.Model):
     _inherit = 'crm.lead'
-    @api.multi
+    @api.model
     def action_new_quotation_request(self):
         """
         Request quotation.
@@ -25,4 +25,3 @@ class Lead(models.Model):
             },
         }        
         return quotation_request
-        
