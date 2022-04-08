@@ -1,0 +1,59 @@
+<odoo>
+    <data>        
+        <record id="stock_picking_form_inherit_artdeko" model="ir.ui.view">
+            <field name="name">stock.picking.form.inherit.artdeko</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/header[1]/button[3]" position="after">
+                    <button name="picking_force_cancel" type="object"
+                            string="Forzar cancelación" class="btn-primary" invisible="True"/>                    
+                </xpath>
+                <xpath expr="//group[1]/group[1]/field[@name='location_id']" position="after">
+                    <field name="sale_order" string="Folio de venta"/>
+                </xpath>
+                <xpath expr="//page[@name='extra']" position="inside">
+	                <separator string="Información de recepción"/>	                
+	                <group name="artdeko_exta_info">
+	                	<field name="guide_number"/>
+	                	<field name="departure_date"/>
+	                	<field name="shipping_cost"/>
+	                	<field name="shipping_cost_currency_id"/>
+	                	<field name="date_done" string="Fecha real de recepción" readonly="1"/>                     
+	                </group>
+                </xpath>               
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_internal_control_report">
+            <field name="name">stock.picking.list.artdeko</field>
+            <field name="model">stock.picking</field>
+            <field name="priority" eval="30"/>
+            <field name="arch" type="xml">               
+                <tree string="Control interno" editable="top" create="false">
+                    <field name="name" readonly="1"/>
+                    <field name="origin" readonly="1"/>
+                    <field name="sale_order" readonly="1"/>
+                    <field name="guide_number"/>
+                    <field name="departure_date"/>
+                    <field name="scheduled_date"/>
+                    <field name="date_done" string="Fecha real de recepción" readonly="1"/>
+                    <field name="shipping_cost"/>
+                    <field name="shipping_cost_currency_id"/>
+                    <field name="state"/>
+                    <field name="priority" invisible="1"/>
+                    <field name="picking_type_id" invisible="1"/>                    
+                </tree>
+            </field>
+        </record>
+        <record id="action_internal_control_tree" model="ir.actions.act_window">
+            <field name="name">Control interno</field>
+            <field name="res_model">stock.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>                       
+            <field name="view_id" ref="view_internal_control_report"/> 
+            <field name="domain">[('picking_type_code','=', 'incoming')]</field>           
+        </record>        
+        <menuitem id="internal_control_menu" name="Control interno" parent="stock.menu_stock_warehouse_mgmt" sequence="7" action="action_internal_control_tree" groups="stock.group_stock_manager,stock.group_stock_user"/>                    
+    </data>
+</odoo>
