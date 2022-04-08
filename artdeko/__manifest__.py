@@ -18,6 +18,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/artdeko_views.xml',
+        'views/users_views.xml',
         'views/stock_picking_views.xml',
         'report/artdeko_paper_formats.xml',
         'report/artdeko_layouts.xml',
