@@ -23,6 +23,7 @@
         'report/artdeko_paper_formats.xml',
         'report/artdeko_layouts.xml',
         'report/artdeko_sale_templates.xml',
+        'report/artdeko_purchase_order_templates.xml',
         'report/artdeko_reports.xml'
     ]
 }
