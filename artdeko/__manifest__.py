@@ -8,7 +8,8 @@
         'contacts',
         'purchase',
         'sale',
-        'stock'
+        'stock',
+        'crm'
     ],
     'css': ['static/src/css/crm.css'],
     'installable': True,
@@ -18,6 +19,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/artdeko_views.xml',
+        'views/crm_views.xml',
         'views/users_views.xml',
         'views/stock_picking_views.xml',
         'report/artdeko_paper_formats.xml',
