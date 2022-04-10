@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>    
+    <template id="comercial_layout">        
+        <t t-if="not o and doc">
+            <t t-set="o" t-value="doc"/>
+        </t>
+        <t t-if="o and 'company_id' in o">
+            <t t-set="company" t-value="o.company_id.sudo()"/>
+        </t>
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company"/>
+        </t>
+        <div class="header">
+            <div class="row" style="padding-top:50px;">
+                <div class="col-6">
+                    <img style="padding-left:70px;" class="img img-responsive" src="/artdeko/static/src/img/logo.png" width="300px"/>                    
+                </div>                
+                <div class="col-6" name="company_address">                        
+                    <img style="padding-right:60px;" align="right" class="img img-responsive" src="/artdeko/static/src/img/direccion.png" width="315px"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="article o_report_layout_standard">
+            <t t-out="0" />
+        </div>
+        
+        <div class="footer">
+            <div class="row" style="padding-top:50px;padding-buttom:150px;">
+                <div class="col-6">
+                    <img style="padding-left:70px;" class="img img-responsive" src="/artdeko/static/src/img/logo_footer2.png" width="400px"/>                    
+                </div>                                
+            </div>
+        </div>
+    </template>
+</odoo>

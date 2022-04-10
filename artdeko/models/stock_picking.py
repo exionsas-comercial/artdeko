@@ -1,17 +1,10 @@
-# -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+from odoo import api, fields, models
 
-from datetime import datetime
-from odoo import api, fields, models, SUPERUSER_ID, _
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
-from odoo.tools.float_utils import float_is_zero, float_compare
-from odoo.tools.misc import formatLang
-from odoo.addons import decimal_precision as dp
 
 class Picking(models.Model):
     _inherit = 'stock.picking' 
     
-    @api.multi
+    @api.model
     def picking_force_cancel(self):
         """
         Force the stock picking cancelation
@@ -27,5 +20,5 @@ class Picking(models.Model):
     #Fecha de salida del pedido desde el proveedor
     departure_date = fields.Datetime('Fecha salida proveedor')    
     #Costos de envío
-    shipping_cost = fields.Float('Costo de envío', digits=dp.get_precision('Costo'), default=0.0)
+    shipping_cost = fields.Float('Costo de envío', digits = 'Costo', default=0.0)
     shipping_cost_currency_id = fields.Many2one("res.currency", string="Moneda")

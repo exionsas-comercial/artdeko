@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="purchase_order_form" model="ir.ui.view">
+        <record id="purchase_order_form_inherit_artdeko" model="ir.ui.view">
             <field name="name">purchase.order.form.inherit.artdeko</field>
             <field name="model">purchase.order</field>
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/field[@name='company_id']" position="after">
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/div[@name='date_planned_div']" position="after">
                     <field name="sale_order"/>
                 </xpath>
                 <xpath expr="//form[1]/sheet[1]/notebook[1]/page[1]/field[@name='order_line']/tree[1]/field[@name='price_unit']" position="after">
@@ -22,23 +23,33 @@
                 </xpath>                
             </field>
         </record>
-        <record id="purchase_order_tree" model="ir.ui.view">
+        <record id="purchase_order_tree_inherit_artdeko" model="ir.ui.view">
             <field name="name">purchase.order.tree.inherited.artdeko</field>
             <field name="model">purchase.order</field>
-            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='origin']" position="before">
                     <field name="sale_order" string="Venta"/>
                 </xpath>
             </field>
         </record>
-        <record model="ir.actions.act_window" id="sale_purchase_orders_tree">
+        <record id="purchase_order_kpis_tree_inherit_artdeko" model="ir.ui.view">
+            <field name="name">purchase.order.kpis.tree.inherited.artdeko</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='origin']" position="before">
+                    <field name="sale_order" string="Venta"/>
+                </xpath>
+            </field>
+        </record>
+        <!-- <record model="ir.actions.act_window" id="sale_purchase_orders_tree">
             <field name="name">Compras</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">purchase.order</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" eval="False"/> <!-- Force empty -->
+            <field name="search_view_id" eval="False"/> Force empty 
             <field name="view_id" ref="purchase.purchase_order_tree"/>        
         </record>        
         <record id="view_order_form" model="ir.ui.view">
@@ -145,6 +156,6 @@
                     <field name="specifier_ok"  type="checkbox"  string="Especificador"/>                                  
                 </xpath>                
             </field>
-        </record>        
+        </record>         -->
     </data>
 </odoo>

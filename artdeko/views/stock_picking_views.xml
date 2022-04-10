@@ -1,6 +1,6 @@
 <odoo>
     <data>        
-        <record id="view_picking_form" model="ir.ui.view">
+        <record id="stock_picking_form_inherit_artdeko" model="ir.ui.view">
             <field name="name">stock.picking.form.inherit.artdeko</field>
             <field name="model">stock.picking</field>
             <field name="inherit_id" ref="stock.view_picking_form"/>
@@ -9,7 +9,7 @@
                     <button name="picking_force_cancel" type="object"
                             string="Forzar cancelación" class="btn-primary" invisible="True"/>                    
                 </xpath>
-                <xpath expr="//field[@name='location_id']" position="after">
+                <xpath expr="//group[1]/group[1]/field[@name='location_id']" position="after">
                     <field name="sale_order" string="Folio de venta"/>
                 </xpath>
                 <xpath expr="//page[@name='extra']" position="inside">
@@ -49,7 +49,6 @@
             <field name="name">Control interno</field>
             <field name="res_model">stock.picking</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>                       
             <field name="view_id" ref="view_internal_control_report"/> 
             <field name="domain">[('picking_type_code','=', 'incoming')]</field>           

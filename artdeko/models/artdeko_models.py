@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, fields, models, SUPERUSER_ID, _
+from odoo import fields, models
 
 class division(models.Model):
     _name = 'artdeko.division'
+    _description = "Division Model"
+
     name = fields.Char(string="Nombre")
