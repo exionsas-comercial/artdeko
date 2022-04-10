@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_purchase_order_document">
+        <t t-call="artdeko.forvendor_layout">
+            <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})" />
+            <div class="page">
+                <div class="oe_structure"/>
+                <div class="row" style="font-family: 'Rockwell' !important;">                
+                    <div class="col-6">
+                        <img style="display: block;margin-left: auto;margin-right: auto;" class="img img-responsive" src="/artdeko/static/src/img/logo.png" width="280px"/>                    
+                    </div>                
+                    <div class="col-6 text-right">
+                        <p style="text-decoration: underline;font-weight: bold;font-size:20px;">
+                            <span>Orden de Compra No. </span>                
+                            <span t-field="doc.name"/>
+                        </p>                    
+                        <p style="font-size:16px;">
+                            <strong>Fecha: </strong><span t-field="doc.date_order" t-options='{"widget": "date"}'/>
+                        </p>               
+                    </div>                
+                </div>            
+                <div style="padding:15px 30px 5px 30px;font-family: 'Rockwell' !important;">                   
+                    <div class="row">
+                        <div class="col-5 text-center">
+                            <p>
+                                <span style="font-size:18px;font-weight: bold;" t-esc="doc.company_id.name"/>
+                            </p> 
+                            <p>
+                                <span style="font-size:18px;font-weight: bold;" t-esc="doc.company_id.vat"/>
+                            </p>                        
+                        </div>
+                        <div class="col-7">                                                              
+                        </div>                                    
+                    </div>
+                </div>
+                <div style="padding:5px 0px 5px 0px;font-family: 'Rockwell' !important;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th class="text-left">Datos proveedor</th>                                                                    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding:5px; border:1px solid black !important;">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <p class="text-right">
+                                                <strong>Proveedor:</strong>
+                                            </p>                        
+                                        </div>
+                                        <div class="col-4">
+                                            <p>
+                                                <span t-field="doc.partner_id"/>
+                                            </p>                        
+                                        </div>
+                                        <div class="col-2">
+                                            <p class="text-right">
+                                                <strong><t t-esc="doc.partner_id.country_id.vat_label or 'RFC'"/>:</strong>
+                                            </p>                        
+                                        </div>
+                                        <div class="col-4">
+                                            <p>
+                                                <t t-if="doc.partner_id.vat">
+                                                    <span t-field="doc.partner_id.vat"/>
+                                                </t>
+                                            </p>                        
+                                        </div>                                                     
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <p class="text-right">
+                                                <strong>Domicilio:</strong>
+                                            </p>                        
+                                        </div>
+                                        <div class="col-10">
+                                            <p>                           
+                                                <t t-if="doc.partner_id.street_name">
+                                                <span t-esc="doc.partner_id.street_name"/> 
+                                                </t>
+                                                <t t-if="doc.partner_id.street2">
+                                                    <span t-esc="doc.partner_id.street2"/> - 
+                                                </t>                        
+                                                <t t-if="doc.partner_id.street_number2">
+                                                    <span t-esc="doc.partner_id.street_number2"/> 
+                                                </t>
+                                                <t t-if="doc.partner_id.l10n_mx_edi_colony">
+                                                    , <span t-esc="doc.partner_id.l10n_mx_edi_colony"/>
+                                                </t>
+                                                <t t-if="doc.partner_id.city">
+                                                    , <span t-esc="doc.partner_id.city"/>
+                                                </t>
+                                                <t t-if="doc.partner_id.state_id.name">
+                                                    , <span t-esc="doc.partner_id.state_id.name"/>
+                                                </t>
+                                                <t t-if="doc.partner_id.country_id.name">
+                                                    , <span t-esc="doc.partner_id.country_id.name"/>
+                                                </t>                            
+                                            </p>                        
+                                        </div>                                                                            
+                                    </div>                    
+                                    <div class="row">                                               
+                                        <div class="col-2">
+                                            <p class="text-right">
+                                                <strong>CP:</strong>
+                                            </p>                        
+                                        </div>
+                                        <div class="col-4">
+                                            <p>                
+                                                <t t-if="doc.partner_id.zip">
+                                                    <span t-esc="doc.partner_id.zip"/>
+                                                </t>                            
+                                            </p>                        
+                                        </div>
+                                        <div class="col-2">
+                                            <p class="text-right">
+                                                <strong>Teléfono:</strong>
+                                            </p>                        
+                                        </div>
+                                        <div class="col-4">
+                                            <p>                 
+                                                <t t-if="doc.partner_id.phone">
+                                                    <span t-esc="doc.partner_id.phone"/>
+                                                </t>                            
+                                            </p>                        
+                                        </div>                                    
+                                    </div>                                
+                                </td>                            
+                            </tr>                        
+                        </tbody>
+                    </table>
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>                                                        
+                                <th class="text-left" style="padding-top: 3px;">Datos de venta</th>                                                    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>                            
+                                <td style="width:50%; padding:5px; border:1px solid black !important;">
+                                    <div class="row">
+                                        <t t-if="doc.sale_order.specifier_id">
+                                            <div class="col-2">
+                                                <p class="text-right">
+                                                    <strong>Especificador:</strong>
+                                                </p>                        
+                                            </div>
+                                            <div class="col-4">
+                                                <p>
+                                                    <span t-field="doc.sale_order.specifier_id.name"/>				                                
+                                                </p>                        
+                                            </div>
+                                        </t>
+                                        <t t-if="doc.sale_order">                                               
+                                            <div class="col-2">
+                                                <p class="text-right">
+                                                    <strong>Folio de venta:</strong>
+                                                </p>                        
+                                            </div>
+                                            <div class="col-4">
+                                                <p> 
+                                                    <span t-esc="doc.sale_order.name"/>				                                                            
+                                                </p>                        
+                                            </div>
+                                        </t>
+                                    </div>
+                                    <div class="row">
+                                        <t t-if="doc.sale_order.division">
+                                            <div class="col-2">
+                                                <p class="text-right">
+                                                    <strong>División:</strong>
+                                                </p>                        
+                                            </div>
+                                            <div class="col-4">
+                                                <p>
+                                                    <span t-field="doc.sale_order.division.name"/>				                                                                
+                                                </p>                        
+                                            </div>
+                                        </t>
+                                        <t t-if="doc.sale_order.team_id">
+                                            <div class="col-2">
+                                                <p class="text-right">
+                                                    <strong>Canal:</strong>
+                                                </p>                        
+                                            </div>
+                                            <div class="col-4">
+                                                <p>
+                                                    <span t-field="doc.sale_order.team_id.name"/>				                                
+                                                </p>                        
+                                            </div>
+                                        </t>                                                     
+                                    </div>
+                                </td>                            
+                            </tr>                        
+                        </tbody>
+                    </table>                
+                </div>            
+            
+                <!-- Is there a discount on at least one line? -->
+                <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
+            
+                <div style="padding:15px 0px 0px 0px;font-family: 'Rockwell' !important;">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr style="background-color: rgb(166,166,166);">
+                                <th class="text-center">Cantidad</th>                            
+                                <th class="text-center">Unidad</th>
+                                <th class="text-center">Código</th>
+                                <th class="text-center">Descripción</th>
+                                <th class="text-center">Costo unidad</th>
+                                <th t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">Descuento(%)</th> 
+                                <th t-if="display_discount" class="text-right">Importe<br></br>descuento</th>
+                                <th class="text-right">Importe</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="doc.order_line" t-as="l">
+                                <td class="text-right">
+                                    <span t-field="l.product_qty"/>                                            
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="l.product_uom" groups="product.group_uom"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="l.product_id.default_code"/>
+                                </td>
+                                <td><span t-field="l.product_id.name"/></td>
+
+                                <td class="text-right">
+                                    <span t-field="l.price_unit"
+                                        t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                </td>
+                                <td t-if="display_discount" class="text-right">
+                                    <span t-field="l.discount"/>
+                                </td>
+                                <td t-if="display_discount" class="text-right">
+                                    <span t-field="l.amount_discount_line" 
+                                    t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                </td>                                                               
+                                <td class="text-right">
+                                    <span t-field="l.price_subtotal"
+                                        t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                </td>
+                            </tr>                        
+                        </tbody>
+                    </table>
+                </div>                      
+                
+                <div class="clearfix">
+                    <div class="row" name="total" style="padding:15px 0px 0px 0px; font-family: 'Rockwell' !important;">
+                        <div class="col-7">
+                            <table class="table table-bordered" style="min-width: 200px;max-width: 350px;">
+                                <tr style="background-color: rgb(166,166,166);">
+                                    <th class="text-center">Importe en letras</th>                                               
+                                </tr>
+                                <tr class="border-black" style="border-bottom:1px solid #dddddd;">                                
+                                    <td class="text-center">
+                                        <span t-esc="doc.purchase_amount_to_text()"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-5">
+                            <table class="table table-condensed" style="min-width: 200px;max-width: 350px;">
+                                <tr t-if="display_discount" class="border-black">
+                                    <td>
+                                        <strong>Subtotal 1 &#40;<span t-field="doc.currency_id.name"></span>&#41;</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="doc.amount_discounted + doc.amount_untaxed"
+                                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <tr t-if="display_discount" class="border-black">
+                                    <td>
+                                        <strong>Descuentos &#40;<span t-field="doc.currency_id.name"></span>&#41;</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="doc.amount_discounted"
+                                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <tr class="border-black">
+                                    <td>
+                                        <strong>Subtotal <t t-if="display_discount">2</t> &#40;<span t-field="doc.currency_id.name"></span>&#41;</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="doc.amount_untaxed"
+                                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>                            
+                                <tr>
+                                    <td>Impuestos</td>
+                                    <td class="text-right">
+                                        <span t-field="doc.amount_tax"
+                                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>                           
+                                <tr class="border-black">
+                                    <td><strong>Total &#40;<span t-field="doc.currency_id.name"></span>&#41;</strong></td>
+                                    <td class="text-right">
+                                        <span t-field="doc.amount_total"
+                                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>                    
+                    </div>
+                    <t t-if="doc.notes">
+                        <div class="row" name="total" style="padding:15px 0px 0px 0px; font-family: 'Rockwell' !important;">
+                            <div class="col-1">                        
+                            </div>
+                            <div class="col-10">
+                                <p>
+                                    <span style="font-size:16px;text-decoration: underline;">OBSERVACIONES:</span>
+                                </p> 
+                                <p>
+                                    <span style="font-size:16px;" t-esc="doc.notes"/>
+                                </p> 
+                            </div>
+                            <div class="col-1">                        
+                            </div>                    
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template> 
+    
+    <template id="report_purchase_order">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="artdeko.report_purchase_order_document" t-lang="doc.partner_id.lang"/>
+            </t>
+        </t>
+    </template> 
+</odoo>
