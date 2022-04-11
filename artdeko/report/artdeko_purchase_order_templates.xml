@@ -78,9 +78,9 @@
                                                 <t t-if="doc.partner_id.street">
                                                     <span t-esc="doc.partner_id.street"/> 
                                                 </t>                                                
-                                                <t t-if="doc.partner_id.l10n_mx_edi_colony">
+                                                <!--<t t-if="doc.partner_id.l10n_mx_edi_colony">
                                                     , <span t-esc="doc.partner_id.l10n_mx_edi_colony"/>
-                                                </t>
+                                                </t>-->
                                                 <t t-if="doc.partner_id.city">
                                                     , <span t-esc="doc.partner_id.city"/>
                                                 </t>
