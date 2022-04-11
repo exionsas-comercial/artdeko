@@ -12,7 +12,6 @@
         'crm',
         'account'
     ],
-    'css': ['static/src/css/crm.css'],
     'installable': True,
     'application': True,
     'auto_install': False,
@@ -28,5 +27,12 @@
         'report/artdeko_sale_templates.xml',
         'report/artdeko_purchase_order_templates.xml',
         'report/artdeko_reports.xml'
-    ]
+    ],
+    'assets': {
+        'web.report_assets_common': [
+            '/artdeko/static/src/css/rockwell_regular_base64.css',
+            '/artdeko/static/src/css/lato_regular_base64.css',
+            '/artdeko/static/src/css/lato_regular_base64.css'
+        ],
+    },
 }

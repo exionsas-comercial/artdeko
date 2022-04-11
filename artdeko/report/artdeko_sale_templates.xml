@@ -188,8 +188,8 @@
                         <li><span>Proporcionar los datos de facturación máximo 24 horas después de confirmar la compra.</span></li>
                         <li><span>La cotización se factura a una sola razón social.</span></li>
                         <li><span>Pagos en efectivo se facturan a “Público en General”.</span></li>
-                        <li><span>La factura se emite en pesos mexicanos (MN) al tipo de cambio del día en que se realizó el pago.</span></li>
-                        <li><span>Una vez pagada la factura ya sea parcial o total no podrá cancelarse.</span></li>
+                        <li><span>La factura se emite en pesos mexicanos (MXN) al tipo de cambio del día en que se realizó el pago.</span></li>
+                        <li><span>Una vez emitida la factura ya sea parcial o total no podrá cancelarse.</span></li>
                     </ul>
                 </div>
                 <div class="col-1">                        
