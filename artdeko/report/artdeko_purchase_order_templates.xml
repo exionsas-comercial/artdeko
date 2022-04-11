@@ -75,15 +75,9 @@
                                         </div>
                                         <div class="col-10">
                                             <p>                           
-                                                <t t-if="doc.partner_id.street_name">
-                                                <span t-esc="doc.partner_id.street_name"/> 
-                                                </t>
-                                                <t t-if="doc.partner_id.street2">
-                                                    <span t-esc="doc.partner_id.street2"/> - 
-                                                </t>                        
-                                                <t t-if="doc.partner_id.street_number2">
-                                                    <span t-esc="doc.partner_id.street_number2"/> 
-                                                </t>
+                                                <t t-if="doc.partner_id.street">
+                                                    <span t-esc="doc.partner_id.street"/> 
+                                                </t>                                                
                                                 <t t-if="doc.partner_id.l10n_mx_edi_colony">
                                                     , <span t-esc="doc.partner_id.l10n_mx_edi_colony"/>
                                                 </t>
