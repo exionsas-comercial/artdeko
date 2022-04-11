@@ -9,7 +9,9 @@
         'purchase',
         'sale',
         'stock',
-        'l10n_mx_edi'
+        'account',
+        'l10n_mx_edi',
+        'l10n_mx_edi_extended'
     ],
     'css': ['static/src/css/crm.css'],
     'installable': True,
