@@ -9,7 +9,8 @@
         'purchase',
         'sale',
         'stock',
-        'crm'
+        'crm',
+        'account'
     ],
     'css': ['static/src/css/crm.css'],
     'installable': True,
@@ -25,6 +26,7 @@
         'report/artdeko_paper_formats.xml',
         'report/artdeko_layouts.xml',
         'report/artdeko_sale_templates.xml',
+        'report/artdeko_purchase_order_templates.xml',
         'report/artdeko_reports.xml'
     ]
 }
