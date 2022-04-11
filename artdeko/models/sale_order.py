@@ -75,7 +75,7 @@ class SaleOrder(models.Model):
         '''
         self.ensure_one()        
         action = self.env.ref('artdeko.sale_purchase_orders_tree').read()[0]        
-        purchases = self.env['purchase.order'].search([('sale_order', '=', self.id)])
+        purchases = self.env['purchase.order'].sudo().search([('sale_order', '=', self.id)])
         if len(purchases) > 1:
             action['domain'] = [('id', 'in', purchases.ids)]        
         elif purchases:
@@ -92,7 +92,7 @@ class SaleOrder(models.Model):
         '''
         action = self.env.ref('stock.action_picking_tree_all').read()[0]        
         action['context'] = {}
-        purchases = self.env['purchase.order'].search([('sale_order', '=', self.id)])
+        purchases = self.env['purchase.order'].sudo().search([('sale_order', '=', self.id)])
         pick_ids = purchases.mapped('picking_ids')        
         if not pick_ids or len(pick_ids) > 1:
             action['domain'] = "[('id','in',%s)]" % (pick_ids.ids)
@@ -109,10 +109,10 @@ class SaleOrder(models.Model):
         '''
         purchases_names = ""
         for order in self:
-            purchases = self.env['purchase.order'].search([('sale_order', '=', order.id)])
+            purchases = self.env['purchase.order'].sudo().search([('sale_order', '=', order.id)])
             order.purchase_count = len(purchases)
             if order.purchase_count == 1:
-                purchases_names = self.env['purchase.order'].search([('sale_order', '=', order.id)], limit=1).name
+                purchases_names = self.env['purchase.order'].sudo().search([('sale_order', '=', order.id)], limit=1).name
             elif order.purchase_count > 1:                
                 for purchase in purchases:
                     purchases_names = purchases_names + purchase.name + ", "
@@ -124,6 +124,6 @@ class SaleOrder(models.Model):
         Calculate the quantity of the pickings asociate with the purchases for each sale order and update the data base.
         '''
         for order in self:
-            receipts = self.env['purchase.order'].search_read([('sale_order', '=', order.id)], ['picking_count'])
+            receipts = self.env['purchase.order'].sudo().search_read([('sale_order', '=', order.id)], ['picking_count'])
             order.receipt_count = sum([item['picking_count'] for item in receipts])
     
