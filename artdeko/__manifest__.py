@@ -9,7 +9,7 @@
         'purchase',
         'sale',
         'stock',
-        'crm'
+        'crm',
         'account'
     ],
     'css': ['static/src/css/crm.css'],
