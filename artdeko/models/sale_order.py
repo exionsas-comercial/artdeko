@@ -7,7 +7,7 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'    
 
     #Campo para tener el conteo de las ordenes de compra que se han generado por la venta
-    purchase_count = fields.Integer(string='Ordenes de compra', compute='_compute_purchase_ids')
+    purchase_count = fields.Integer(string='Cantidad ordenes de compra', compute='_compute_purchase_ids')
     #Campo para tener en un string los códigos de las ordenes de compra que se han generado por la venta
     purchase_string = fields.Char(string='Ordenes de compra', compute='_compute_purchase_ids')
     #Campo para tener el conteo de las recepciones relacionadas con la venta através de las compras
