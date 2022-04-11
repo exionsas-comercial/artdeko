@@ -8,7 +8,8 @@
         'contacts',
         'purchase',
         'sale',
-        'stock'
+        'stock',
+        'l10n_mx_edi'
     ],
     'css': ['static/src/css/crm.css'],
     'installable': True,
