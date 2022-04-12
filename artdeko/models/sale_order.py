@@ -124,6 +124,6 @@ class SaleOrder(models.Model):
         Calculate the quantity of the pickings asociate with the purchases for each sale order and update the data base.
         '''
         for order in self:
-            receipts = self.env['purchase.order'].sudo().search_read([('sale_order', '=', order.id)], ['picking_count'])
-            order.receipt_count = sum([item['picking_count'] for item in receipts])
+            receipts = self.env['purchase.order'].sudo().search_read([('sale_order', '=', order.id)], ['incoming_picking_count'])
+            order.receipt_count = sum([item['incoming_picking_count'] for item in receipts])
     
