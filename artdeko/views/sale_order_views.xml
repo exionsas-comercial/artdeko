@@ -90,7 +90,7 @@
                     <attribute name="icon">
                         fa-truck
                     </attribute>                    
-                </button>
+                </xpath>
             </field>
         </record>    
     </data>
