@@ -9,7 +9,8 @@
         'purchase',
         'sale',
         'stock',
-        'account'
+        'account',
+        'sale_stock'
     ],
     'installable': True,
     'application': True,
