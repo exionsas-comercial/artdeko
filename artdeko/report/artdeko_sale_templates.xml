@@ -5,7 +5,7 @@
         <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})" />
         <div class="page">
             <div class="oe_structure"/>
-            <div class="row" style="font-family: 'Rockwell' !important;">
+            <div class="row" style="font-family: 'latoregular' !important;">
                 <div class="col-1">                        
                 </div>
                 <div class="col-10 text-right">
@@ -28,7 +28,7 @@
                 <div class="col-1">                        
                 </div>                              
             </div>
-            <div class="row" style="padding:10px;font-family: 'Rockwell' !important;">                
+            <div class="row" style="padding:10px;font-family: 'latoregular' !important;">                
                 <div class="col-11 col-offset-1">
                     <div t-field="doc.partner_id"
                         t-options='{"widget": "contact", "fields": ["name", "parent_id", "email", "phone"], "no_marker": True}' />                                       
@@ -39,7 +39,7 @@
             <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
 
             
-            <div style="padding:30px;font-family: 'Rockwell' !important;">    
+            <div style="padding:30px;font-family: 'latoregular' !important;">    
                 <table class="table table-condensed">
                     <thead>
                         <tr>
@@ -140,7 +140,7 @@
             </div>
             
             <t t-if="doc.note">
-                <div class="row" name="total" style="padding:15px 0px 0px 0px; font-family: 'Rockwell' !important;">
+                <div class="row" name="total" style="padding:15px 0px 0px 0px; font-family: 'latoregular' !important;">
                     <div class="col-1">                        
                     </div>
                     <div class="col-10">
@@ -157,7 +157,7 @@
             </t>
                        
             <p style="page-break-before:always;"> </p>
-            <div class="row" style="font-family: 'Rockwell' !important; font-size:12px !important;">
+            <div class="row" style="font-family: 'latoregular' !important; font-size:12px !important;">
                 <div class="col-1">                        
                 </div>
                 <div class="col-10">
@@ -177,7 +177,7 @@
                 <div class="col-1">                        
                 </div>                              
             </div>
-            <div class="row" style="font-family: 'Rockwell' !important; font-size:12px !important;">
+            <div class="row" style="font-family: 'latoregular' !important; font-size:12px !important;">
                 <div class="col-1">                        
                 </div>
                 <div class="col-10">
@@ -195,7 +195,7 @@
                 <div class="col-1">                        
                 </div>                              
             </div>
-            <div class="row" style="font-family: 'Rockwell' !important; font-size:12px !important;">
+            <div class="row" style="font-family: 'latoregular' !important; font-size:12px !important;">
                 <div class="col-1">                        
                 </div>
                 <div class="col-10">
@@ -210,7 +210,7 @@
                 <div class="col-1">                        
                 </div>                              
             </div>
-            <div class="row" style="font-family: 'Rockwell' !important; font-size:12px !important;">
+            <div class="row" style="font-family: 'latoregular' !important; font-size:12px !important;">
                 <div class="col-1">                        
                 </div>
                 <div class="col-10">
