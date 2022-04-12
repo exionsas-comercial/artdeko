@@ -43,6 +43,7 @@
                 <field name="note" position="attributes">
                     <attribute name="placeholder">Observaciones</attribute>
                 </field>
+                
                 <!--<xpath expr="//button[@name='print_quotation'][1]" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
@@ -51,5 +52,15 @@
                 </xpath> -->               
             </field>
         </record>
+        <record id="view_order_form_delivery_action_inherited" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.delivery.action.artdeko</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_view_delivery']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+            </field>
+        </record>    
     </data>
 </odoo>

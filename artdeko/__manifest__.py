@@ -10,7 +10,8 @@
         'sale',
         'stock',
         'crm',
-        'account'
+        'account',
+        'sale_stock'
     ],
     'installable': True,
     'application': True,
