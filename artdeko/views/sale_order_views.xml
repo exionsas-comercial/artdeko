@@ -81,7 +81,7 @@
         <record id="view_order_form_purchases_inherited" model="ir.ui.view">
             <field name="name">sale.order.form.inherit.purchases.artdeko</field>
             <field name="model">sale.order</field>            
-            <field name="inherit_id" ref="sale_purchase.sale_order_inherited_form_purchase"/>
+            <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//button[@name='action_view_purchase_orders']" position="attributes">
                     <attribute name="attrs">
