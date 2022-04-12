@@ -5,7 +5,7 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                <!--<xpath expr="//form[1]/header[1]/button[3]" position="after">
+                <xpath expr="//form[1]/header[1]/button[4]" position="after">
                     <button name="prepare_purchase_lines_from_sale_order" type="object"
                         string="Crear orden de compra" class="btn-primary" 
                         attrs="{'invisible': [('state', 'not in', ['sale'])]}"
@@ -16,7 +16,7 @@
                     <button name="action_invoice_request" type="object"
                         string="Solicitar facturación" class="btn-primary" 
                         attrs="{'invisible': [('state', 'not in', ['sale'])]}"/>
-                </xpath>-->
+                </xpath>
                 <xpath expr="//button[@name='action_view_invoice']" position="after">                    
                     <button type="object"
                         name="action_view_purchases"

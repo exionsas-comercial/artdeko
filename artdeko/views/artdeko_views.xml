@@ -43,16 +43,15 @@
                 </xpath>
             </field>
         </record>
-        <!-- <record model="ir.actions.act_window" id="sale_purchase_orders_tree">
+        <record model="ir.actions.act_window" id="sale_purchase_orders_tree">
             <field name="name">Compras</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">purchase.order</field>
-            <field name="view_type">form</field>
+            <field name="res_model">purchase.order</field>            
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" eval="False"/> Force empty 
+            <field name="search_view_id" eval="False"/> 
             <field name="view_id" ref="purchase.purchase_order_tree"/>        
         </record>                
-        <record id="invoice_form" model="ir.ui.view">
+        <!-- <record id="invoice_form" model="ir.ui.view">
             <field name="name">account.invoice.form.inherited.artdeko</field>
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_form"/>

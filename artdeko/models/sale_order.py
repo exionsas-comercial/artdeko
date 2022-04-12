@@ -124,6 +124,52 @@ class SaleOrder(models.Model):
         Calculate the quantity of the pickings asociate with the purchases for each sale order and update the data base.
         '''
         for order in self:
-            receipts = self.env['purchase.order'].sudo().search_read([('sale_order', '=', order.id)], ['picking_count'])
-            order.receipt_count = sum([item['picking_count'] for item in receipts])
+            receipts = self.env['purchase.order'].sudo().search_read([('sale_order', '=', order.id)], ['incoming_picking_count'])
+            order.receipt_count = sum([item['incoming_picking_count'] for item in receipts])
+
+
+    def action_new_purchase_request(self):
+        """
+        Request purchase.
+        """
+        purchase_request = {}        
+        purchase_request = {
+            'type': 'ir.actions.act_window',
+            'res_model': 'mail.activity',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'views': [[False, 'form']],
+            'target': 'new',
+            'context': {
+                'default_activity_type_id': 6,
+                'default_res_id': self.id,
+                'default_res_model': 'sale.order',
+                'default_summary': 'Solicitud de Orden de Compra',
+                'default_note': 'Por favor realizar la compra de los productos de la presente cotización',
+            },
+        }        
+        return purchase_request
     
+
+    def action_invoice_request(self):
+        """
+        Request purchase.
+        """
+        invoice_request = {}        
+        invoice_request = {
+            'type': 'ir.actions.act_window',
+            'res_model': 'mail.activity',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'views': [[False, 'form']],
+            'target': 'new',
+            'context': {
+                'default_activity_type_id': 10,
+                'default_res_id': self.id,
+                'default_res_model': 'sale.order',
+                'default_summary': 'Solicitud de Factura',
+                'default_note': 'Por favor realizar la factura de la presente cotización',
+            },
+        }        
+        return invoice_request 
+           

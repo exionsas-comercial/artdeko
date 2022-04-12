@@ -5,7 +5,7 @@
             <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})" />
             <div class="page">
                 <div class="oe_structure"/>
-                <div class="row" style="font-family: 'Rockwell' !important;">                
+                <div class="row" style="font-family: 'latoregular' !important;">                
                     <div class="col-6">
                         <img style="display: block;margin-left: auto;margin-right: auto;" class="img img-responsive" src="/artdeko/static/src/img/logo.png" width="280px"/>                    
                     </div>                
@@ -19,7 +19,7 @@
                         </p>               
                     </div>                
                 </div>            
-                <div style="padding:15px 30px 5px 30px;font-family: 'Rockwell' !important;">                   
+                <div style="padding:15px 30px 5px 30px;font-family: 'latoregular' !important;">                   
                     <div class="row">
                         <div class="col-5 text-center">
                             <p>
@@ -33,7 +33,7 @@
                         </div>                                    
                     </div>
                 </div>
-                <div style="padding:5px 0px 5px 0px;font-family: 'Rockwell' !important;">
+                <div style="padding:5px 0px 5px 0px;font-family: 'latoregular' !important;">
                     <table style="width: 100%;">
                         <thead>
                             <tr>
@@ -193,7 +193,7 @@
                 <!-- Is there a discount on at least one line? -->
                 <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
             
-                <div style="padding:15px 0px 0px 0px;font-family: 'Rockwell' !important;">
+                <div style="padding:15px 0px 0px 0px;font-family: 'latoregular' !important;">
                     <table class="table table-bordered">
                         <thead>
                             <tr style="background-color: rgb(166,166,166);">
@@ -241,7 +241,7 @@
                 </div>                      
                 
                 <div class="clearfix">
-                    <div class="row" name="total" style="padding:15px 0px 0px 0px; font-family: 'Rockwell' !important;">
+                    <div class="row" name="total" style="padding:15px 0px 0px 0px; font-family: 'latoregular' !important;">
                         <div class="col-7">
                             <table class="table table-bordered" style="min-width: 200px;max-width: 350px;">
                                 <tr style="background-color: rgb(166,166,166);">
@@ -301,7 +301,7 @@
                         </div>                    
                     </div>
                     <t t-if="doc.notes">
-                        <div class="row" name="total" style="padding:15px 0px 0px 0px; font-family: 'Rockwell' !important;">
+                        <div class="row" name="total" style="padding:15px 0px 0px 0px; font-family: 'latoregular' !important;">
                             <div class="col-1">                        
                             </div>
                             <div class="col-10">
