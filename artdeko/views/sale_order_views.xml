@@ -43,6 +43,21 @@
                 <field name="note" position="attributes">
                     <attribute name="placeholder">Observaciones</attribute>
                 </field>
+                <xpath expr="//button[@name='action_view_purchase_orders']" position="attributes">
+                    <attribute name="attrs">
+                        {'invisible': True}
+                    </attribute>                    
+                </xpath>
+                <xpath expr="//button[@name='action_view_delivery']" position="attributes">
+                    <attribute name="attrs">
+                        {'invisible': True}
+                    </attribute>                    
+                </xpath>
+                <xpath expr="//button[@name='action_view_dropship']" position="attributes">
+                    <attribute name="attrs">
+                        {'invisible': True}
+                    </attribute>                    
+                </xpath>
                 <!--<xpath expr="//button[@name='print_quotation'][1]" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
@@ -50,6 +65,6 @@
                     <attribute name="invisible">True</attribute>
                 </xpath> -->               
             </field>
-        </record>
+        </record>   
     </data>
 </odoo>

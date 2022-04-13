@@ -10,7 +10,10 @@
         'sale',
         'stock',
         'crm',
-        'account'
+        'account',
+        'sale_stock',
+        'stock_dropshipping',
+        'sale_purchase'
     ],
     'installable': True,
     'application': True,
