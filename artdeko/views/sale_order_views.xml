@@ -45,10 +45,17 @@
                 </field>
                 <xpath expr="//button[@name='action_view_purchase_orders']" position="attributes">
                     <attribute name="attrs">
-                        {'invisible': [('purchase_order_count', '=', 1)]}
-                    </attribute> 
-                    <attribute name="icon">
-                        fa-truck
+                        {'invisible': True}
+                    </attribute>                    
+                </xpath>
+                <xpath expr="//button[@name='action_view_delivery']" position="attributes">
+                    <attribute name="attrs">
+                        {'invisible': True}
+                    </attribute>                    
+                </xpath>
+                <xpath expr="//button[@name='action_view_dropship']" position="attributes">
+                    <attribute name="attrs">
+                        {'invisible': True}
                     </attribute>                    
                 </xpath>
                 <!--<xpath expr="//button[@name='print_quotation'][1]" position="attributes">
@@ -58,40 +65,6 @@
                     <attribute name="invisible">True</attribute>
                 </xpath> -->               
             </field>
-        </record>
-        <record id="view_order_form_delivery_action_inherited" model="ir.ui.view">
-            <field name="name">sale.order.form.inherit.delivery.action.artdeko</field>
-            <field name="model">sale.order</field>
-            <field name="mode">primary</field>
-            <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock"/>
-            <field name="arch" type="xml">
-                <button name="action_view_delivery" position="attributes">
-                    <attribute name="attrs">
-                        {'invisible': True}
-                    </attribute>                    
-                </button>
-            </field>
-        </record> 
-        <record id="view_order_form_delivery_dropship_inherited" model="ir.ui.view">
-            <field name="name">sale.order.form.inherit.delivery.dropship.artdeko</field>
-            <field name="model">sale.order</field>
-            <field name="mode">primary</field>
-            <field name="inherit_id" ref="stock_dropshipping.view_order_form_inherit_sale_stock"/>
-            <field name="arch" type="xml">
-                <button name="action_view_dropship" position="attributes">
-                    <attribute name="attrs">
-                        {'invisible': True}
-                    </attribute>                    
-                </button>
-            </field>
-        </record> 
-        <!--<record id="view_order_form_purchases_inherited" model="ir.ui.view">
-            <field name="name">sale.order.form.inherit.purchases.artdeko</field>
-            <field name="model">sale.order</field>            
-            <field name="inherit_id" ref="sale.view_order_form"/>
-            <field name="arch" type="xml">
-                
-            </field>
-        </record> -->   
+        </record>   
     </data>
 </odoo>
