@@ -48,12 +48,12 @@
                         {'invisible': True}
                     </attribute>                    
                 </xpath>
-                <xpath expr="//button[@name='action_view_delivery']" position="attributes">
+                <!--<xpath expr="//button[@name='action_view_delivery']" position="attributes">
                     <attribute name="attrs">
                         {'invisible': True}
                     </attribute>                    
                 </xpath>
-                <!--<xpath expr="//button[@name='action_view_dropship']" position="attributes">
+                <xpath expr="//button[@name='action_view_dropship']" position="attributes">
                     <attribute name="attrs">
                         {'invisible': True}
                     </attribute>                    
