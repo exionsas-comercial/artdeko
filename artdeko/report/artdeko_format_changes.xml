@@ -4,8 +4,8 @@
         <xpath expr="//t[1]/tr[1]/td[1]" position="replace">
             <td><strong t-out="subtotal['name']"/>&#40;<span t-out="currency_name"/>&#41;</td>
         </xpath>
-        <xpath expr="//tr[2]/td[2]" position="replace">
-            <td><strong t-out="tax_totals['formatted_amount_total']"/>&#40;<span t-out="currency_name"/>&#41;</td>
+        <xpath expr="//tr[2]/td[1]" position="replace">
+            <td><strong>Total</strong>&#40;<span t-out="currency_name"/>&#41;</td>
         </xpath>
     </template>    
 </odoo>
