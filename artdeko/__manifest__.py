@@ -26,6 +26,7 @@
         'views/users_views.xml',
         'views/stock_picking_views.xml',
         'views/sale_order_views.xml',
+        'report/artdeko_format_changes.xml',
         'report/artdeko_paper_formats.xml',
         'report/artdeko_layouts.xml',
         'report/artdeko_sale_templates.xml',
