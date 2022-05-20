@@ -4,7 +4,7 @@
         <xpath expr="//t[1]/tr[1]/td[1]" position="replace">
             <td><strong t-out="subtotal['name']"/>&#40;<span t-out="currency_name"/>&#41;</td>
         </xpath>
-        <xpath expr="//tr[1]/td[1]" position="replace">
+        <xpath expr="//tr[hasclass('border-black o_total')]/td[1]" position="replace">
             <td><strong>Total</strong>&#40;<span t-out="currency_name"/>&#41;</td>
         </xpath>
     </template>    
