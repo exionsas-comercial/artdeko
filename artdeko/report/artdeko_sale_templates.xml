@@ -217,8 +217,8 @@
                 <div class="col-10">
                     <p style="text-decoration: underline;">Entrega y resguardo de mercancía</p>
                     <ul>
-                        <li><span>Una vez que se confirme la llegada del producto, el cliente dispone de 7 días naturales como máximo de almacenaje sin costo.</span></li>
-                        <li><span>Después de 7 días, se cobra el 1% mensual sobre el valor de la factura por concepto de almacenaje, sujeto a disponibilidad de espacio en nuestro almacén. En caso de no haber disponibilidad de espacio la mercancía será enviada a la bodega que el cliente disponga o en su defecto a un almacén de depósito bajo su costo y riesgo.</span></li>
+                        <li><span>Una vez que se confirme la llegada del producto, el cliente dispone de 15 días naturales como máximo de almacenaje sin costo.</span></li>
+                        <li><span>Después de 15 días, se cobra el 1% mensual sobre el valor de la factura por concepto de almacenaje, sujeto a disponibilidad de espacio en nuestro almacén. En caso de no haber disponibilidad de espacio la mercancía será enviada a la bodega que el cliente disponga o en su defecto a un almacén de depósito bajo su costo y riesgo.</span></li>
                         <li><span>El producto solo se entregará en el lugar, día y hora que señale el cliente.</span></li>
                         <li><span>Sólo se hará la entrega al responsable que el cliente haya designado previamente.</span></li>
                         <li><span>En caso de que no se realice la entrega por causas imputables al cliente, los costos de almacenaje y reprogramación de la entrega correrán a cargo del cliente.</span></li>
