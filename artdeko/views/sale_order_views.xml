@@ -48,6 +48,11 @@
                         {'invisible': [('state', 'in', ['done', 'cancel'])]}
                     </attribute>                    
                 </xpath>
+                <xpath expr="//group[@name='order_details']/field[2]" position="attributes">
+                    <attribute name="attrs">
+                        {'invisible': [('state', 'in', ['done', 'cancel'])]}
+                    </attribute>                    
+                </xpath>
                 <!--<xpath expr="//button[@name='print_quotation'][1]" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
