@@ -43,7 +43,11 @@
                 <field name="note" position="attributes">
                     <attribute name="placeholder">Observaciones</attribute>
                 </field>
-                
+                <xpath expr="//group[@name='order_details']/div[1]" position="attributes">
+                    <attribute name="attrs">
+                        {'invisible': [('state', 'in', ['done', 'cancel'])]}
+                    </attribute>                    
+                </xpath>
                 <!--<xpath expr="//button[@name='print_quotation'][1]" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
