@@ -48,15 +48,13 @@
                         {'invisible': True}
                     </attribute>                    
                 </xpath>
-                <xpath expr="//group[@name='order_details']/div[1]" position="attributes">
-                    <attribute name="attrs">
-                        {'invisible': [('state', 'in', ['done', 'cancel'])]}
-                    </attribute>                    
+                <xpath expr="//group[@name='order_details']/div[1]" position="replace">
+                    <div class="o_td_label">
+                        <label for="date_order" string="Fecha cotización"/>
+                    </div>
                 </xpath>
-                <xpath expr="//group[@name='order_details']/field[2]" position="attributes">
-                    <attribute name="attrs">
-                        {'invisible': [('state', 'in', ['done', 'cancel'])]}
-                    </attribute>                    
+                <xpath expr="//group[@name='order_details']/field[2]" position="replace">
+                    <field name="date_order" nolabel="1"/>                   
                 </xpath>
                 <!--<xpath expr="//button[@name='action_view_delivery']" position="attributes">
                     <attribute name="attrs">
