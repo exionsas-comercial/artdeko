@@ -44,6 +44,17 @@
             <field name="paperformat_id" ref="paperformat_artdeko_invoice_letter"/>
             <field name="binding_model_id" ref="account.model_account_move"/>
             <field name="binding_type">report</field> 
-        </record>   
+        </record>
+        <record id="action_account_original_vendor_bill" model="ir.actions.report">
+            <field name="name">Original Bills</field>
+            <field name="model">account.move</field>
+            <field name="binding_model_id" ref="model_account_move"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">artdeko.report_original_vendor_bill</field>
+            <field name="report_file">artdeko.report_original_vendor_bill</field>
+            <field name="attachment">'original_vendor_bill.pdf'</field>
+            <field name="attachment_use">True</field>
+            <field name="binding_view_types">list</field>
+        </record>
     </data>
 </odoo>
