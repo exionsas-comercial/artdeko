@@ -21,6 +21,9 @@
 	                	<field name="shipping_cost_currency_id"/>
 	                	<field name="date_done" string="Fecha real de recepción" readonly="1"/>                     
 	                </group>
+                </xpath>
+                <xpath expr="//page[@name='operations']/field[@name='move_ids_without_package']/tree[1]/field[@name='quantity_done']" position="replace">
+                    <field name="quantity_done" string="Hecho"/>
                 </xpath>               
             </field>
         </record>
